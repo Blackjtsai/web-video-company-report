@@ -215,3 +215,7 @@ PRESENTATION_TTS=edge-tts npm run synthesize-audio
 **③ 根目錄 `CLAUDE.md`（本檔）**
 - [ ] 新增簡報專案 → 專案總覽表格已補上？
 - [ ] 發現影響所有專案的框架規則 → 關鍵架構規則已更新？
+
+**④ `index.html`（push 前必做）**
+- [ ] 新增簡報專案 → 在 `index.html` 的表格加一行（序號、名稱、連結、建立日期）？
+- [ ] 格式：複製現有 `<tr>` 區塊，修改欄位內容即可

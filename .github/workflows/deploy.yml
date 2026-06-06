@@ -42,19 +42,7 @@ jobs:
           mkdir -p deploy/20260612-ai-collab-report-pic
           cp -r site/20260612-ai-collab-report/src/dist/. deploy/20260612-ai-collab-report/
           cp -r site/20260612-ai-collab-report-pic/src/dist/. deploy/20260612-ai-collab-report-pic/
-          cat > deploy/index.html << 'EOF'
-          <!DOCTYPE html>
-          <html lang="zh-TW">
-          <head><meta charset="UTF-8"><title>Web Video 簡報</title>
-          <style>body{font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:24px;background:#050810;color:#f1f5f9;}a{color:#8B5CF6;font-size:1.2rem;}</style>
-          </head>
-          <body>
-            <h1>Web Video 簡報</h1>
-            <a href="20260612-ai-collab-report/">AI 協作報告（暖色版）</a>
-            <a href="20260612-ai-collab-report-pic/">AI 協作報告（Vivid Dark 圖像版）</a>
-          </body>
-          </html>
-          EOF
+          cp index.html deploy/index.html
 
       - uses: actions/configure-pages@v4
         with:

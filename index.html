@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Video 簡報總覽</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Noto Sans TC", sans-serif;
+      background: #050810;
+      color: #f1f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+    }
+    h1 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #475569;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+    .table-wrap {
+      width: 100%;
+      max-width: 860px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    thead tr {
+      border-bottom: 1px solid #1e293b;
+    }
+    th {
+      text-align: left;
+      padding: 12px 20px;
+      font-family: monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #475569;
+      font-weight: 500;
+    }
+    td {
+      padding: 18px 20px;
+      border-bottom: 1px solid #0f172a;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #0d1326; }
+    .num {
+      font-family: monospace;
+      color: #334155;
+      font-size: 13px;
+    }
+    .name { font-weight: 700; color: #f1f5f9; }
+    .tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .tag-warm  { background: rgba(20,184,166,0.15); color: #14b8a6; border: 1px solid rgba(20,184,166,0.3); }
+    .tag-vivid { background: rgba(139,92,246,0.15); color: #8b5cf6; border: 1px solid rgba(139,92,246,0.3); }
+    a.link {
+      color: #8b5cf6;
+      text-decoration: none;
+      font-size: 13px;
+    }
+    a.link:hover { color: #a78bfa; text-decoration: underline; }
+    .date { font-family: monospace; font-size: 13px; color: #475569; }
+    .footer {
+      margin-top: 48px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #1e293b;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Web Video 簡報</h1>
+  <div class="subtitle">EasonTsai · 網站技術課</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>簡報名稱</th>
+          <th>連結</th>
+          <th>建立日期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">01</td>
+          <td class="name">
+            AI 協作推動實戰觀察
+            <span class="tag tag-warm">暖色 Keynote</span>
+          </td>
+          <td><a class="link" href="20260612-ai-collab-report/">前往簡報 →</a></td>
+          <td class="date">2026-06-12</td>
+        </tr>
+        <tr>
+          <td class="num">02</td>
+          <td class="name">
+            AI 協作推動實戰觀察（圖像版）
+            <span class="tag tag-vivid">Vivid Dark</span>
+          </td>
+          <td><a class="link" href="20260612-ai-collab-report-pic/">前往簡報 →</a></td>
+          <td class="date">2026-06-06</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">BLACKJTSAI · WEB-VIDEO-COMPANY-REPORT</div>
+</body>
+</html>
