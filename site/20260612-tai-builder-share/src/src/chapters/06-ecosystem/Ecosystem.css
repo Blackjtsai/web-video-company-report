@@ -1,0 +1,55 @@
+/* Ecosystem — 共用樣式來自 tb-common.css */
+
+.ec-content { flex: 1; display: flex; gap: 40px; align-items: center; }
+
+/* 四層堆疊 */
+.ec-layers { flex: 1; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+
+.ec-layer { display: flex; align-items: center; opacity: 0; transition: opacity 0.4s ease; }
+.ec-layer.visible { opacity: 1; }
+
+.ec-layer-num {
+  width: 56px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: clamp(20px, 2.2vw, 30px);
+  font-weight: 900;
+  color: #000;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+.ec-layer--dim .ec-layer-num { background: var(--surface-3); color: var(--text-mute); }
+
+.ec-layer-body {
+  flex: 1;
+  padding: 18px 24px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ec-layer--dim .ec-layer-body { background: var(--surface-3); }
+
+.ec-layer-name { font-family: var(--font-display-cn); font-size: clamp(14px, 1.6vw, 22px); font-weight: 700; color: var(--accent); }
+.ec-layer--dim .ec-layer-name { color: var(--text-mute); }
+.ec-layer-desc { font-size: clamp(12px, 1.2vw, 16px); }
+
+/* Right: image */
+.ec-img { flex: 0 0 45%; display: flex; align-items: center; justify-content: center; }
+.ec-img .ic-card { max-height: 58vh; }
+.ec-img .ic-thumb { max-height: 58vh; object-fit: initial; width: auto; height: auto; }
+
+/* Bottom */
+.ec-conclusion {
+  margin-top: 16px;
+  font-size: clamp(13px, 1.3vw, 18px);
+  color: var(--text-mute);
+  line-height: 1.6;
+  text-align: center;
+}
+.ec-conclusion strong { color: var(--accent); }

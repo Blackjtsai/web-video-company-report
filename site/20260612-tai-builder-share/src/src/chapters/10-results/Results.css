@@ -1,0 +1,72 @@
+/* Results — 共用樣式來自 tb-common.css */
+
+/* Step 0 — intro */
+.rs-intro { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 16px; }
+.rs-intro-label { color: var(--text-mute) !important; }
+.rs-intro-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(36px, 4vw, 60px);
+  font-weight: 900;
+  color: var(--accent);
+}
+
+/* Step 1 — 四大數字 */
+.rs-nums { display: flex; gap: 20px; flex: 1; align-items: stretch; }
+.rs-num-card {
+  flex: 1;
+  padding: 32px 24px;
+  border-top: 3px solid var(--accent) !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  animation: rs-in 0.4s ease both;
+}
+.rs-num-card:nth-child(2) { animation-delay: 80ms; }
+.rs-num-card:nth-child(3) { animation-delay: 160ms; }
+.rs-num-card:nth-child(4) { animation-delay: 240ms; }
+
+.rs-big-num {
+  font-family: var(--font-display-en);
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rs-num-label { color: var(--text-mute) !important; }
+
+/* Step 2 — Bar chart */
+.rs-barchart { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.rs-chart-title { color: var(--text-2) !important; margin-bottom: 4px; }
+
+.rs-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: rs-in 0.4s ease both;
+}
+.rs-bar-row:nth-child(2) { animation-delay: 60ms; }
+.rs-bar-row:nth-child(3) { animation-delay: 120ms; }
+.rs-bar-row:nth-child(4) { animation-delay: 180ms; }
+
+.rs-bar-label { width: 200px; flex-shrink: 0; font-size: clamp(11px, 1.1vw, 15px); color: var(--text-2); text-align: right; }
+.rs-bar-wrap  { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.rs-bar       { height: 22px; }
+.rs-bar--old  { background: #444; width: 100%; }
+.rs-bar--new  { background: var(--accent); }
+.rs-bar-mult  { margin-left: 8px; font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--accent); }
+
+/* Step 3 — 成熟度 */
+.rs-maturity-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(16px, 1.8vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+}
+
+@keyframes rs-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,66 @@
+/* FourThings — 共用樣式來自 tb-common.css */
+
+.ft-timeline { display: flex; gap: 0; align-items: stretch; width: 100%; }
+
+.ft-step { flex: 1; display: flex; flex-direction: column; position: relative; opacity: 0; }
+.ft-step.visible { opacity: 1; animation: ft-pop 0.4s ease both; }
+
+.ft-step-inner {
+  padding: 28px 24px 28px 28px;
+  border-right: none;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ft-step:last-child .ft-step-inner { border-right: 1px solid var(--rule); }
+
+.ft-step-num {
+  font-family: var(--font-mono);
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+.ft-step-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(15px, 1.6vw, 21px);
+  font-weight: 700;
+  color: var(--text);
+}
+.ft-step-sub {
+  font-size: clamp(12px, 1.2vw, 16px);
+  color: var(--text-mute);
+  line-height: 1.6;
+}
+
+.ft-arrow {
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.ft-conclusion {
+  margin-top: 32px;
+  text-align: center;
+  font-family: var(--font-display-cn);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 700;
+  animation: ft-pop 0.4s ease both;
+}
+
+@keyframes ft-pop {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

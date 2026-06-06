@@ -1,0 +1,35 @@
+/* Roadmap — 共用樣式來自 tb-common.css */
+
+/* Timeline */
+.rm-timeline { display: flex; flex-direction: column; gap: 0; flex: 1; justify-content: center; }
+
+.rm-tl-item { display: flex; gap: 28px; align-items: stretch; opacity: 0; transition: opacity 0.4s ease; }
+.rm-tl-item.visible { opacity: 1; animation: rm-in 0.4s ease both; }
+.rm-tl-item:nth-child(2).visible { animation-delay: 100ms; }
+.rm-tl-item:nth-child(3).visible { animation-delay: 200ms; }
+
+.rm-tl-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 100px; }
+.rm-tl-dot  { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); flex-shrink: 0; border: 3px solid #000; box-shadow: 0 0 0 2px var(--accent); }
+.rm-tl-line { flex: 1; width: 2px; background: var(--rule); margin: 4px 0; }
+.rm-tl-date { font-family: var(--font-mono); font-size: clamp(10px, 1vw, 13px); color: var(--accent); text-align: center; margin-bottom: 6px; white-space: nowrap; }
+
+.rm-tl-body { flex: 1; padding: 0 0 32px 0; display: flex; flex-direction: column; gap: 8px; }
+.rm-tl-body-title { font-family: var(--font-display-cn); font-size: clamp(15px, 1.6vw, 22px); font-weight: 700; color: var(--text); }
+.rm-tl-body-desc  { font-size: clamp(12px, 1.2vw, 17px); }
+
+/* CTA */
+.rm-cta { gap: 28px; text-align: center; }
+.rm-cta-main {
+  font-family: var(--font-display-cn);
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1.2;
+}
+.rm-cta-sub  { font-size: clamp(18px, 2vw, 28px) !important; }
+.rm-cta-thanks { margin-top: 12px; }
+
+@keyframes rm-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

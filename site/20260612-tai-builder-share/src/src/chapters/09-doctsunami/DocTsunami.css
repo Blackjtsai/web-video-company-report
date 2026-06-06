@@ -1,0 +1,56 @@
+/* DocTsunami — 共用樣式來自 tb-common.css */
+
+/* Step 0 */
+.dt-quote-big {
+  font-family: var(--font-display-cn);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1.3;
+  margin: 0;
+}
+.dt-quote-sub { font-size: clamp(15px, 1.6vw, 22px); }
+
+/* Step 1 — 2x2 grid */
+.dt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; align-content: center; }
+
+.dt-doc-card {
+  padding: 24px 28px;
+  border-left: 4px solid var(--accent) !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: dt-in 0.4s ease both;
+}
+.dt-doc-card:nth-child(2) { animation-delay: 80ms; }
+.dt-doc-card:nth-child(4) { animation-delay: 80ms; }
+
+.dt-doc-name { font-family: var(--font-mono); font-size: clamp(13px, 1.4vw, 18px); font-weight: 700; color: var(--accent); }
+.dt-doc-desc { font-size: clamp(12px, 1.2vw, 16px); }
+
+/* Step 2 — pipeline */
+.dt-pipeline { flex: 1; display: flex; flex-direction: column; gap: 24px; }
+.dt-pipeline-flow { display: flex; align-items: center; gap: 0; }
+
+.dt-pipe-node {
+  flex: 1;
+  padding: 16px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-right: none;
+  text-align: center;
+  font-family: var(--font-display-cn);
+  font-size: clamp(13px, 1.4vw, 18px);
+  font-weight: 700;
+  color: var(--text);
+  animation: dt-in 0.4s ease both;
+}
+.dt-pipe-node:last-child { border-right: 1px solid var(--rule); }
+.dt-pipe-node.highlighted { color: var(--accent); border-color: var(--accent); }
+.dt-pipe-arrow { width: 28px; text-align: center; color: var(--accent); font-size: 16px; flex-shrink: 0; }
+.dt-pipeline-cta { text-align: center; }
+
+@keyframes dt-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

@@ -101,6 +101,7 @@ done
 | 20260612-ai-collab-report | ✅ 完成 | 11 章，暖色 Keynote，口播稿 + TTS，port 5174 |
 | 20260612-ai-collab-report-pic | ✅ 完成 | 11 章，Vivid Dark 圖像版，無音頻，全螢幕，port 5180 |
 | 20260612-ai-collab-report-light | ✅ 完成 | 11 章，Corporate Light 企業淺色版，無音頻，全螢幕，port 5181 |
+| 20260612-tai-builder-share | ✅ 完成 | 12 章，黑底橘字，TAI-Builder 分享，無音頻，全螢幕，port 5182 |
 
 ## 藍圖（BLUEPRINT.md）規則
 

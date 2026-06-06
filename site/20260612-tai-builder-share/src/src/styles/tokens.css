@@ -1,0 +1,52 @@
+/* ─────────────────────────────────────────────────────────────────────
+ * Theme · tai-builder-dark
+ *   極簡扁平化暗黑風格。純黑底、亮橘強調、無漸層無圓角。
+ *   依 doc/article.md 視覺與排版規範。
+ * ───────────────────────────────────────────────────────────────────── */
+:root {
+  /* ─── palette ─── */
+  --shell:        #000000;
+  --surface:      #000000;
+  --surface-2:    #121212;
+  --surface-3:    #1C1C1E;
+  --text:         #FFFFFF;
+  --text-2:       #CCCCCC;
+  --text-mute:    #8E8E93;
+  --text-faint:   #555558;
+  --rule:         #333333;
+  --accent:       #FF6600;
+  --accent-soft:  rgba(255, 102, 0, 0.12);
+  --accent-glow:  rgba(255, 102, 0, 0.35);
+
+  /* ─── fonts ─── */
+  --font-display-cn: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  --font-display-en: "Inter", "SF Pro Display", system-ui, sans-serif;
+  --font-body:       "Noto Sans TC", "PingFang TC", system-ui, sans-serif;
+  --font-mono:       "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  --font-features:   "tnum";
+
+  /* ─── motion ─── */
+  --dur-base:       400ms;
+  --dur-slow:       700ms;
+  --dur-cinematic:  1000ms;
+
+  /* ─── design identity: flat dark ─── */
+  --r-card:        0;
+  --r-stage:       0;
+  --rule-w:        1px;
+  --rule-style:    solid;
+  --hero-num-font:    var(--font-display-en);
+  --hero-num-style:   normal;
+  --hero-num-weight:  900;
+  --hero-num-track:   -0.02em;
+  --stage-pad-x:   80px;
+  --stage-pad-y:   60px;
+  --card-shadow:   none;
+  --shadow-stage:  none;
+
+  /* ─── 背景網格 ─── */
+  --surface-pattern:
+    linear-gradient(rgba(255, 102, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 102, 0, 0.08) 1px, transparent 1px);
+  --surface-pattern-size: 60px 60px;
+}

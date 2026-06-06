@@ -1,0 +1,49 @@
+/* Mindset — 共用樣式來自 tb-common.css */
+
+.ms-intro  { display: flex; flex-direction: column; gap: 20px; max-width: 760px; }
+.ms-golden { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 24px; text-align: center; }
+.ms-center { text-align: center; }
+
+.ms-core-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(32px, 3.8vw, 58px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Split: 圖在左，欄在右 */
+.tb-split .ms-compare { flex: 1; display: flex; gap: 20px; align-items: stretch; }
+
+.ms-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ms-col-header {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+}
+.ms-col-label {
+  font-family: var(--font-display-cn);
+  font-size: clamp(13px, 1.4vw, 18px);
+  font-weight: 700;
+}
+.ms-col--inner .ms-col-header { background: var(--accent); }
+.ms-col--inner .ms-col-label  { color: #000; }
+.ms-col--outer .ms-col-header { background: var(--surface-2); border: 1px solid var(--rule); }
+.ms-col--outer .ms-col-label  { color: var(--text-mute); }
+
+.ms-items { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.ms-item {
+  padding: 12px 20px;
+  font-size: clamp(13px, 1.2vw, 17px);
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+}
+.ms-col--inner .ms-item { border-color: rgba(255,102,0,0.25); color: var(--text); }
+.ms-col--outer .ms-item { color: var(--text-mute); }

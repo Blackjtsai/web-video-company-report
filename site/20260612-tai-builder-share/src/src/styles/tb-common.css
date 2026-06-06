@@ -1,0 +1,159 @@
+/* ─── tb-common.css — 黑橘共用視覺系統 ─── */
+
+/* Stage: 縱向 flex — 不設 background，讓 stage-frame 的網格透出 */
+.tb-scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--stage-pad-y) var(--stage-pad-x);
+}
+
+/* Stage: 垂直水平置中 */
+.tb-scene-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--stage-pad-y) var(--stage-pad-x);
+}
+
+/* 章節 header block */
+.tb-ch-header {
+  flex-shrink: 0;
+  margin-bottom: 36px;
+}
+
+/* CH XX 數字標籤 */
+.tb-ch-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* ── 字體尺規 ── */
+
+.tb-h1 {
+  font-family: var(--font-display-cn);
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.tb-h2 {
+  font-family: var(--font-display-cn);
+  font-size: clamp(28px, 3.2vw, 48px);
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.tb-h3 {
+  font-family: var(--font-display-cn);
+  font-size: clamp(20px, 2.08vw, 34px);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.tb-body {
+  font-family: var(--font-display-cn);
+  font-size: clamp(15px, 1.3vw, 22px);
+  color: var(--text-2);
+  line-height: 1.65;
+}
+
+.tb-label {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-faint);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tb-em { color: var(--accent); font-weight: 700; }
+
+/* ── 卡片 ── */
+
+.tb-card {
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-card);
+}
+
+.tb-card-accent {
+  background: var(--surface-2);
+  border: 1px solid var(--accent);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--r-card);
+}
+
+/* ── Content flex 區域 ── */
+
+.tb-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* ── Split: 左文右圖 ── */
+
+.tb-split {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.tb-split-text {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tb-split-img {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* ImgCard 在 split 右欄：跟著圖自然大小 */
+.tb-split-img .ic-card {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  flex-shrink: 1;
+}
+
+.tb-split-img .ic-thumb {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 58vh;
+  object-fit: initial;
+}
+
+/* ── 動畫 ── */
+
+@keyframes tb-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tb-anim { animation: tb-rise 500ms ease both; }

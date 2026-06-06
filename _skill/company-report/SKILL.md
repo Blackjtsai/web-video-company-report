@@ -467,4 +467,34 @@ base: "/repo-name/project-folder-name/",
 ```
 **注意**：STORAGE_KEY bump 時，`index.html` 的 onclick 也要同步更新。
 
+### 14. 新專案必須建立共用 CSS 系統（`*-common.css`）
+
+**問題**：新建簡報時直接讓各章節自行定義 `.xx-stage`、`.xx-chapter-num`、`.xx-title`、`.xx-fade` 等，導致：
+- 字體比例不一致（每章自訂 clamp() 尺寸略有差異）
+- 卡片風格不統一
+- 每章 CSS 100-300 行，大量重複 boilerplate
+- 整體視覺「變醜」（使用者回饋「怎麼沒參考之前的排版經驗？」）
+
+**根本原因**：pic 版的視覺品質來自 `pic-common.css`，新專案缺少這層。
+
+**解法**：每個新專案在實作第一章前，先建立 `styles/{prefix}-common.css`，定義：
+- Stage wrapper (`.tb-scene`, `.tb-scene-center`)
+- Chapter header (`.tb-ch-header`, `.tb-ch-num`)
+- Typography scale (`.tb-h1`, `.tb-h2`, `.tb-h3`, `.tb-body`, `.tb-label`)
+- Cards (`.tb-card`, `.tb-card-accent`)
+- Split layout (`.tb-split`, `.tb-split-text`, `.tb-split-img`)
+- Content area (`.tb-content`)
+- Animation (`.tb-anim`)
+
+各章節 CSS 只寫章節特有的排版，每章縮到 30-60 行。
+
+### 15. 跨主題複製 ImgCard / Lightbox 需改顏色
+
+**問題**：直接從 vivid-dark 版複製 ImgCard.css + Lightbox.css，邊框和發光效果仍是紫色 `rgba(139, 92, 246, ...)`。
+
+**解法**：複製後搜尋替換三個顏色值：
+- `rgba(139, 92, 246` → `rgba(255, 102, 0`（ImgCard hover 邊框 + Lightbox 導覽按鈕）
+- `#8B5CF6` → `#FF6600`（Lightbox 分頁點 active 顏色）
+- 若目標主題 `--r-card: 0`，ImgCard.css 的 `border-radius: 12px` 也要移除或設為 0
+
 ---
