@@ -1,0 +1,156 @@
+﻿序號,項目名稱,API / 元件名稱,PM/SA/SD,開發人員,重點說明,開發時間,SIT,UAT,Unnamed: 9
+UC 3.1 基礎建設,,,,,,,,,
+UC 3.1.1,環境架構,,,,,,,,
+UC 3.1.1.1,Infra 架構確認,,Eason,Brian,,12/3~12/20,,,
+UC 3.1.1.2,Infra sit 申請作業,,Jason,Jason,,12/3~1/3,,,
+UC 3.1.1.3,Infra uat 申請作業,,Jason,Jason,,12/3~1/3,,,
+UC 3.1.1.4,Infra prd 申請作業,,Jason,Jason,,2025/4,,,
+UC 3.1.1.6,ELK uat,,Jason,Jason,,12/3~1/3,,,
+UC 3.1.1.7,ELK prd,,Jason,Jason,,2025-05-26 00:00:00,,,
+UC 3.1.1.8,REDIS  sit 架構,,Brian,Brian,,2025-05-26 00:00:00,,,
+UC 3.1.1.9,REDIS uat 架構,,Brian,Brian,,2025-05-26 00:00:00,,,
+UC 3.1.1.10,REDIS PRD 架構,,Brian,Brian,,2025-05-26 00:00:00,,,
+UC 3.1.2,資料庫設計,,,,,,,,
+UC 3.1.2.1,ERM,,Eason,Eason,,12/3~12/20,,,
+UC 3.1.2.2,TB,,Eason,Eason,,12/3~12/20,,,
+UC 3.1.3,系統框架,,,,,,,,
+UC 3.1.3.1,Web,,Brian,Brian,"eservice.twmsolution.com
+sit-eservice.twmsolution.com
+uat-eservice.twmsolution.com",12/16~1/17,,,
+UC 3.1.3.2,Backend,,Brian,Brian,"eservice.backend.twmsolution.com
+sit-eservice.backend.twmsolution.com
+uat-eservice.backend.twmsolution.com",12/16~1/17,,,
+UC 3.1.3.3,API,,Brian,Brian,"eservice.api.twmsolution.com
+sit-eservice.api.twmsolution.com
+uat-eservice.api.twmsolution.com",12/16~1/17,,,
+UC 3.2 WEB,,,,,,,,,
+UC 3.2.1,頁面組版架構,,Brian,Brian,呼叫[UC 3.3.1]取的組成頁面資料,12/16~1/24,,,
+UC 3.2.2,HTML元件,C_001,Yen,Brian,自定義HTML內容,2025-02-20 00:00:00,,,
+UC 3.2.3,錯誤說明頁面,獨立頁面(天地註解 可選),,,,,,,
+UC 3.3 API,,,,,,,,,
+UC 3.3.1,取得目前頁面資料,,Brian,Brian,,12/16~1/24,,,
+UC 3.3.2,取得網站目錄,GET: /api/v1/site/menu/{websiteId}?website_category_name={website_category_name},Brian,Ken,website_category_name 非必填,3/13~3/21,,,
+UC 3.3.3,取得有效的定義檔資料,GET: /api/v1/system/definition/{tableName},Eason/Yen,Brian/Ken,"select * from portal_definition where  table_name={$table_name} and is_delete ='N'  order by column_name ,seq",3/13~3/21,,,
+UC 3.3.4,取得有效的文件資料,GET: /api/v1/common/file?upload_file_type_id={upload_file_type_id}&page={page}&size_num={size},Eason,Ken,請參與 /API/UC3.3.4.md pdf,2025-04-07 00:00:00,,,
+UC 3.3.5,取得有效的文件類型資料,GET: /api/v1/common/file_type,Eason,Ken,請參與 /API/UC3.3.5.md pdf,2025-04-07 00:00:00,,,
+UC 3.3.6,取得有效最新消息列表資料,GET: /api/v1/common/portal_news?hashtag_id={hashtag_id}&news_type={news_type)&page={page}&size={size},Eason,Ken,請參與 /API/UC3.3.6.md pdf,2025-04-09 00:00:00,,,
+UC 3.3.7,取得有效指定news_id最新消息明細,GET: /api/v1/common/portal_news/news_id,Eason,Ken,請參與 /API/UC3.3.7.md pdf,2025-04-09 00:00:00,,,
+UC 3.3.8,取得有效文章列表資料,GET: /api/v1/common/article?hashtag_id={hashtag_id}&article_type={article_type)&faq_type_id={faq_type_id)&page={page}&size={size},Eason,Jim,請參與 /API/UC3.3.8.md pdf,4/9~4/9,,,
+UC 3.3.9,取得有效指定article_id文章資料,GET: /api/v1/common/portal_article/article_id,Eason,Jim,請參與 /API/UC3.3.9.md pdf,4/9~4/9,,,
+UC 3.3.10,取得有效活動列表資料,GET: /api/v1/common/portal_event?event_type={event_type)&page={page}&size={size},Eason,Ken,請參與 /API/UC3.3.10.md pdf,2025/5/5~5/6,,,
+UC 3.3.11,取得指定有效event_id活動明細包含表單資料,GET: /api/v1/common/portal_event/event_id,Eason,Ken,請參與 /API/UC3.3.11.md pdf,2025/5/5~5/6,,,
+UC 3.3.12,新增活動留資資料,POST: /api/v1/common/portal_event_data,Jason,Ken,,5/7~5/9,,,
+UC 3.3.13,取有效FAQ類別列表,GET: /api/v1/common/portal_faq_type,Eason,Jim,,5/7~5/12,,,
+UC 3.3.14,取有效FAQ資料,GET: /api/v1/common/portal_faq_data?faq_type={faq_type)&page={page}&size={size}&keyword={keyword},Eason,Jim,,5/7~5/12,,,
+UC 3.3.15,取得有效貼標資料,GET: /api/v1/common/portal_hashtag?hashtag_type={hashtag_type},Jason,Jim,,5/23~5/27,,,
+UC 3.3.16,產生圖片驗證碼,GET: /api/v1/captcha/image,Jason,Ken,,,,,
+UC 3.3.17,驗證碼驗證,POST: /api/v1/captcha/validate,Jason,Ken,,,,,
+UC 3.3.18,下載文件,GET: /api/v1/common/file_download/upload_file_id,Eason,Ken,順便部屬到ESP,,,,
+UC 3.3.19,發給維運人員告警，資料寫入[portal_send_message],POST : /api/v1/common/send_message/alert,Jason,Ken,"1: 讀取 $send_subject,$send_note,$send_method
+2: 根據$send_method 取 告警清單 CD alert_list  的 alert_employee_number或是 	alert_email
+3: 將資料寫入 [portal_send_message]  (呼叫  API UC3.3.21)",,,,
+UC 3.3.20,發給每日自動監控資訊，資料寫入[portal_send_message],POST: /api/v1/common/send_message/monitor,Jason,Ken,"1: 讀取 $send_subject,$send_note,$send_method
+2: 根據$send_method 取 告警清單 CD monitor_list  的 monitor_employee_number或是 	monitor_email
+3: 將資料寫入 [portal_send_message]  (呼叫  API UC3.3.21)",,,,
+UC 3.3.21,新增 send_message 資料 ,POST: /api/v1/common/send_message,Jason,Ken,原已有API 補文件,,,,
+UC 3.4 Backend,,,,,,,,,
+UC 3.4.1,登入,,,,,,,,
+UC 3.4.1.1,後台登入-手動登入,,Brian,Brian,,12/16~1/10,,,
+UC 3.4.1.2,後台登入-SSO自動登入,,Yen,Michael,,3/24~3/28,,,
+UC 3.4.1.5,登出,,,,2小時則登出，不會主動通知SSO進行登出,3/24~3/28,,,
+UC 3.4.2,系統管理,,,,,,,,
+UC 3.4.2.1,CD基本設定檔,,Eason,Brian,,12/16~1/10,,,
+UC 3.4.2.2,帳號管理,,Eason,Brian,,12/16~1/10,,,
+UC 3.4.2.3,帳號登入紀錄,,Yen,Michael,,2025-02-07 00:00:00,,,
+UC 3.4.2.4,維運單位管理,,Eason,Brian,,12/16~1/10,,,
+UC 3.4.2.5,後台目錄管理,,Eason,Brian,,12/16~1/10,,,
+UC 3.4.2.6,帳號目錄管理,,Eason,Brian,,12/16~1/10,,,
+UC 3.4.2.7,Job資料管理,,Yen,Michael,,1/13~1/17,,,
+UC 3.4.2.8,Job執行紀錄,,Yen,Aaron,,2025-02-11 00:00:00,,,
+UC 3.4.2.9,資料庫可視化,,Eason,Jim,需要可以下select 查詢資料 ,2025-03-08 00:00:00,,,
+UC 3.4.2.10,NAS檔案資料可視化,,Yen,Jim,需要一個NAS資料樹狀結構列表呈現,3/17~3/19,,,
+UC 3.4.2.11,儀錶板開發,,Yen,Michael,SD 要看的 系統資訊 USER要看的使用資訊數據,4/14~4/18,,,NAS空間監控
+UC 3.4.2.12,帳號管理 新增帳號申請單號欄位 ,,,Michael,,4/14~4/18,,,
+UC 3.4.2.13,系統檢測主檔 ,,Eason,Allen,,,,,
+UC 3.4.2.14,系統檢測報表 ,,Eason,Allen,,,,,
+UC 3.4.2.15,系統檢測報表明細 ,,Eason,Allen,,,,,
+UC 3.4.3,網站基礎設定,,,,,,,,
+UC 3.4.3.1,Template管理,,Eason,Brian,,2025-01-10 00:00:00,,,
+UC 3.4.3.2,網站基本資料,,Eason,Brian,,2025-01-10 00:00:00,,,
+UC 3.4.3.3,元件管理,,Eason,Brian,,2025-01-10 00:00:00,,,
+UC 3.4.3.4,選單位置管理,,Eason,Ken,基本設定檔案,3/17~3/20,,,
+UC 3.4.4,密碼變更,,,,,,,,
+UC 3.4.4.1,密碼變更,,Eason,Brian,,2025-01-10 00:00:00,,,
+UC 3.4.5,網頁管理,,,,,,,,
+UC 3.4.5.1,網站頁面管理,,Eason,Brian,3/17新增位置貼標,3/17~3/20,,,
+UC 3.4.5.2,網站選單管理,,Eason,Brian,,2025-01-10 00:00:00,,,
+UC 3.4.5.3,活動網頁管理,,Eason,Brian,,2/24~3/7,,,
+UC 3.4.5.4,網頁歷程,,Eason,Brian,,3/24~3/28,,,
+UC 3.4.6,共用管理機制,,,,,,,,
+UC 3.4.6.1,文件類型管理,,Eason,Ken,,3/20~3/24,2025-03-24,,
+UC 3.4.6.2,文件資料管理,,Eason,Ken,,2025-03-25 00:00:00,2025-03-24,,
+UC 3.4.6.3,貼標管理,,Eason,Ken,,4/7~4/11,2025-04-11,,
+UC 3.4.6.4,最新消息管理,,Eason,Ken,,4/7~4/11,2025-04-11,,
+UC 3.4.6.5,文章資料管理,,Eason,Jim,,4/7~4/11,2025-04-11,,
+UC 3.4.6.6,訊息發送資料(M+),,Eason,Jim,,4/7~4/11,2025-04-11,,
+UC 3.4.6.7,活動資訊管理,,Eason,Ken,,5/5~5/6,2025-05-09,,
+UC 3.4.6.8,活動留資表單設定,,Eason,Aaron,,5/9~5/14,,,
+UC 3.4.6.9,活動留資資料管理,,Eason,Ken,,5/14~5/16,,,
+UC 3.4.6.10,FAQ類別管理,,Eason,Jim,,5/7~5/12,,,
+UC 3.4.6.11,FAQ資料管理,,Eason,Jim,,5/7~5/12,,,
+UC 3.5 JOB,,,,,,,,,
+UC 3.5.1,通過審核4判斷有效時間後更新為上架狀態,,Eason,Brian,"1:需要有在【portal_job】註冊紀錄 代號:UC3.5.1
+2:一分鐘一次
+3:執行完成後需要寫入【portal_job_log】以利後台查詢 ELK也要",,,,
+UC 3.5.2,將status=5且目前日期已失效更新為9,,Eason,Brian,"1:需要有在【portal_job】註冊紀錄 代號:UC3.5.2
+2:一分鐘一次
+3:執行完成後需要寫入【portal_job_log】以利後台查詢 ELK也要",,,,
+UC 3.5.3,刪除大於5個版本的頁面​,,Eason,Brian,每天01:00 執行 ,,,,
+UC 3.5.4,活動頁面資料將通過審核4判斷有效時間後更新為上架狀態,,Eason,Brian,,2/24~3/7,,,
+UC 3.5.5,活動頁面資料將status=5且目前日期已失效更新為9,,Eason,Brian,,2/24~3/7,,,
+UC 3.5.6,直接刪除已失效且大於60天的活動頁面,,Eason,Brian,where status=9 and ( end_date + 60 < now ),2/24~3/7,,,
+UC 3.5.7,移除已刪除且大於90天的文件檔案資料,,Eason,Michael,移除條件:is delete=y且create_date大於90天的文件檔案資料,3/20~3/24,,,
+UC 3.5.8,註記刪除90天未登入系統的帳號,,Eason,Ken,,3/20~3/24,,,
+UC 3.5.9,發送訊息(單筆發送),,Eason,Ken,"1.取出【portal_send_message】. 【status】== 0 and 【send_method】 == 1 and now()> send_time  尚未發送的資料，呼叫【UC 4.3.1】進行發送
+2.取出【portal_send_message】. 【status】== 0 and 【send_method】 == 2  and now() > send_time尚未發送的資料，呼叫【UC 4.3.1】進行發送
+3.取出【portal_send _message】. 【status】== 0 and 【send_method】 == 3 and nowI() > send_time尚未發送的資料，呼叫【UC 4.4.1】進行發送
+
+4.成功 set【portal_send_message】. 【status】= 1失敗set【portal_send_message】. 【status_note】= {原因}(卡100字元)",5/26~28,,,
+UC 3.5.10,發送活動留資清單給PM,,Jason,Ken,"若前一天有新報名資料， 抓所有資料 產生EXCEL檔，將發送資料寫入send_meaages_table
+send_from:ebgadmin@taiwanmobile.com",5/26~28,,,
+UC 3.5.11,NAS house keeping,,Jason,Ken,,5/26~28,,,
+UC 3.5.12,JOB 是否有進行每日將有效帳號與SSO確認是否有效 無效自動刪除 + 備註說明,,Eason,Michael,00:10執行,2025-10-15 00:00:00,,,
+UC 3.5.13,JOB 80天無登入或已開帳號最後日的為主 自動M+通知  哪天會刪除ˊ帳號,,Eason,Michael,00:15執行,,,,
+UC 3.5.14,自動檢測機制,,Eason,Allen,"06:30每日一次
+$data = select * from [portal_system_check] where is_delete=‘N’
+foreach ($data) { (by api, web 分開作業)
+$response = {執行 $data.system_check_path } =>需要寫一個測試demo  (最小: 連線狀況，執行時間) / 指定部屬位置 (/system_check/check_api_xxx , (/system_check/check_web_xxx )
+取得執行狀態 $system_check_status=$response.code (5:success0000, 7:warn9990,9:fail9999)
+取得執行說明 $system_check_note=$response.note 
+取得執行時間 $system_execution_time=$response.message.system_execution_time 
+insert into [portal_system_check_report_detail] (……)value(…..)
+Switch ($system_check_status){ _x000B_case(5): $system_check_num_success++_x000B_case(7): $system_check_num_warn++ _x000B_case(9): $system_check_num_fail++_x000B_}
+}
+insert into [ portal_system_check_report ] (.…) value (….)
+發送M+ 通知狀況 (失敗的測試報告 要顯示在訊息)",,,,
+UC 3.5.15,自動清除job_log執行紀錄,,Jason,Ken,04:00執行,,,,
+UC 4,異質系統 (/extenel/),,,,,,,,
+UC 4.1,ELK,,,,,,,,
+UC 4.1.1,新增 ELK LOG 方法,,Jason,Michael,,2025-02-24 00:00:00,,,
+UC 4.2  ,AD登入 (/extenel/sso/),,,,,,,,
+UC 4.2.1,"
+要求認證(SSO_2.1.1)
+",,Yen,Brian，Michael,Web應用系統透過網頁HTTP POST方式連結至SSO系統Web認證網頁,3/24~3/28,,,
+UC 4.2.2,取得Token ID(SSO_2.1.2),,Yen,Brian，Michael,"SSO系統透過網頁HTTP POST方式回傳應用系統一個唯一的ID，後續應用系統
+透過此ID取得相關的Token值",3/24~3/28,,,
+UC 4.2.3,"
+要求Token Value(SSO_2.1.3.)
+",/api/v1/extenel/sso/tokenValue,Yen,Brian，Michael,"Web應用系統透過『遠端程序呼叫Remote Procedure Call』的方式向SSO系統取
+得Token Value",3/24~3/28,,,
+UC 4.3  ,M+,,,,,,,,
+UC 4.3.1,發送M+訊息(單筆發送),,Eason,Ken,,2025-04-16 00:00:00,,,
+UC 4.4,Mail,,,,,,,,
+UC 4.4.1,發送mail訊息,,Jason,Aaron,,5/23~27,,,
+,,,,,,,,,
+,,,,,,,,,
+,工作執行日,,,,,,,,0

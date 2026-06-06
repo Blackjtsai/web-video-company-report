@@ -1,0 +1,24 @@
+/* ─── TaiBuilder CH07 — prefix: .tb- ─── */
+.tb-scene { flex-direction: column; }
+.tb-anim  { animation: vd-rise 500ms ease both; }
+
+.tb-intro { display: flex; flex-direction: column; gap: 44px; max-width: 900px; width: 100%; }
+.tb-loop  { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+.tb-loop-item { display: flex; flex-direction: column; align-items: flex-start; }
+.tb-loop-node {
+  padding: 18px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1.5px solid var(--rule);
+  min-width: 240px;
+}
+.tb-loop-label { font-family: var(--font-mono); font-size: clamp(18px, 1.35vw, 26px); font-weight: 700; letter-spacing: 0.08em; }
+.tb-loop-sub   { font-family: var(--font-display-cn); font-size: clamp(13px, 0.94vw, 18px); color: var(--text-mute); }
+.tb-loop-arr   { font-size: clamp(20px, 1.56vw, 30px); padding: 6px 0 6px 40px; }
+
+.tb-flow   { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+.tb-sdlc   { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+.tb-compare{ display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+
+.tb-single-img { width: 100%; }

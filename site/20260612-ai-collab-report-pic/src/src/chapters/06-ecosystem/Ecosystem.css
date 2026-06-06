@@ -1,0 +1,43 @@
+/* ─── Ecosystem CH06 — prefix: .ec- ─── */
+.ec-scene { flex-direction: column; }
+.ec-anim  { animation: vd-rise 500ms ease both; }
+
+.ec-intro { display: flex; flex-direction: column; gap: 44px; max-width: 900px; width: 100%; }
+.ec-layer-preview { display: flex; gap: 16px; flex-wrap: wrap; }
+.ec-layer-chip {
+  padding: 10px 20px;
+  border: 1.5px solid;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 0.94vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+/* step 1 — list inside split */
+.ec-layer-list { display: flex; flex-direction: column; gap: 12px; }
+.ec-lrow { display: flex; gap: 14px; align-items: flex-start; }
+.ec-lrow-num  { font-family: var(--font-mono); font-size: clamp(11px, 0.73vw, 14px); font-weight: 700; letter-spacing: 0.1em; flex-shrink: 0; min-width: 24px; margin-top: 2px; }
+.ec-lrow-body { display: flex; flex-direction: column; gap: 2px; }
+.ec-lrow-name { font-family: var(--font-display-cn); font-size: clamp(16px, 1.15vw, 22px); font-weight: 700; }
+.ec-lrow-desc { font-family: var(--font-display-cn); font-size: clamp(12px, 0.78vw, 15px); color: var(--text-mute); }
+
+.ec-framework { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+
+.ec-principle { display: flex; flex-direction: column; gap: 36px; max-width: 880px; }
+.ec-p-text {
+  font-family: var(--font-display-cn);
+  font-size: clamp(42px, 4.2vw, 80px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0;
+}
+.ec-p-sub {
+  font-family: var(--font-display-cn);
+  font-size: clamp(18px, 1.35vw, 26px);
+  color: var(--text-mute);
+  line-height: 1.6;
+  margin: 0;
+}

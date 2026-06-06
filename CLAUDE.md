@@ -1,161 +1,164 @@
-# 澎湖家族四天三夜 — 影片專案
+# Web Video 簡報專案
 
-## 🙋 美玲 — 旅遊簡報助理
+## 👋 Hi — 開場問候
 
-當使用者說「**美玲**」或提到要做旅遊簡報時，
-自動讀取 `_skill/travel/SKILL.md`，並**先問使用者以下三件事**：
+當使用者說「**Hi**」時，回覆以下內容：
 
-1. **旅遊專案名稱**（格式建議：`YYYYMMDD地點`，例如 `20260801花蓮三日遊`）
-2. **素材位置**（圖片 / PDF / article.md 目前放在哪裡？預設 `./doc/`）
-3. **主題風格**（偏暖色 / 冷色 / 清爽 / 活潑？或直接說「你幫我選」）
+```
+Hi！我是你的 Web Video 簡報助理 🎬
 
-收到三個答案後，執行以下準備再進入 Phase 1：
+這個專案使用 web-video-presentation 工法，把文章 / 口播稿做成：
+• 網頁版 — 現場講解 / 投影，鍵盤 ↓↑ 逐步推進
+• 錄屏版 — 16:9 橫式，每步獨占整屏，有電影感
 
-```bash
-# 建立專案資料夾結構
-mkdir -p ./site/{旅遊專案名稱}/doc
+目前已完成的簡報：
+• 20260612-ai-collab-report      — 暖色 Keynote 版，11 章，含口播稿 + TTS，port 5174
+• 20260612-ai-collab-report-pic  — Vivid Dark 圖像版，11 章，無音頻，全螢幕，port 5180
 
-# 將 doc/ 裡面的素材（圖片 / PDF）移動到專案資料夾
-mv ./doc/* ./site/{旅遊專案名稱}/doc/
-
-# 若根目錄有 article.md / script.md / outline.md，一併移入
-[ -f ./article.md ] && mv ./article.md ./site/{旅遊專案名稱}/
-[ -f ./script.md ]  && mv ./script.md  ./site/{旅遊專案名稱}/
-[ -f ./outline.md ] && mv ./outline.md ./site/{旅遊專案名稱}/
+要開始新簡報，把文章 / 口播稿放進專案資料夾，跟我說「幫我做成簡報」就可以了！
 ```
 
-之後所有作業在 `./site/{旅遊專案名稱}/` 下進行：
-- `doc/`：原始素材（圖片 / PDF）
-- `article.md` / `script.md` / `outline.md`：行程內容稿
-- `src/`：Vite + React 簡報專案
+## 🎬 簡報助理 — 觸發方式
 
-觸發範例：
-- 「美玲，幫我做花蓮的旅遊簡報」
-- 「美玲，開始」
+當使用者說「**幫我做簡報**」或提到要做網頁影片簡報時，
+自動呼叫 `/company-report` 技能（`_skill/company-report/SKILL.md`），並**先問使用者以下三件事**：
+
+1. **簡報專案名稱**（格式建議：`YYYYMMDD主題`，例如 `20260901Q3產品發表`）
+2. **素材位置**（文章 / 口播稿 / 圖片目前放在哪裡？預設 `./doc_source/`）
+3. **主題風格**（偏暖色 / 冷色 / 科技感 / 清爽？或直接說「你幫我選」）
+
+收到三個答案後，建立結構再進入 Phase 1：
+
+```bash
+mkdir -p ./site/{專案名稱}/doc
+# 將素材搬入
+[ -f ./article.md ] && mv ./article.md ./site/{專案名稱}/
+[ -f ./script.md ]  && mv ./script.md  ./site/{專案名稱}/
+[ -f ./outline.md ] && mv ./outline.md ./site/{專案名稱}/
+```
+
+之後所有作業在 `./site/{專案名稱}/` 下進行。
+
+建立結構後，**立刻在 `./site/{專案名稱}/CLAUDE.md` 建立該簡報的說明檔**，記錄：
+- 基本資訊（主題、主講、日期、受眾、主題色、Port、Stage 模式）
+- 章節登錄表格（NN / id / CSS prefix / Steps / 簡述）
+- 主題色 tokens
+- 常用指令（dev server、tsc 檢查）
+- 開發規則（從根 CLAUDE.md 繼承 + 本專案特有規則）
+
+格式參考：`site/20260612-ai-collab-report-pic/CLAUDE.md`
 
 ## ⚡ Claude Code 開場自動檢查（每次新 session 必做）
 
-每次在新裝置或新 session 開啟這個專案時，請**主動執行以下檢查**，
+每次新裝置或新 session 開啟這個專案時，**主動執行以下檢查**，
 若有任何項目未就緒，立刻告知使用者需要安裝什麼：
 
 ```bash
 # 1. Node.js
 node --version
 
-# 2. 澎湖專案依賴
-[ -d site/20260528澎湖四日遊/src/node_modules ] && echo "✓ node_modules" || echo "✗ 需要：cd site/20260528澎湖四日遊/src && npm install"
+# 2. 各簡報專案依賴
+for project in site/*/src; do
+  if [ -d "$project" ]; then
+    name=$(dirname "$project" | xargs basename)
+    if [ -d "$project/node_modules" ]; then
+      echo "✓ ${name}：node_modules 已安裝"
+    else
+      echo "✗ ${name}：需要 cd $project && npm install"
+    fi
+  fi
+done
 
-# 3. edge-tts（音頻合成）
-python3 -c "import edge_tts; print('✓ edge-tts')" 2>/dev/null || echo "✗ 需要：pip install edge-tts"
+# 3. edge-tts（音頻合成，選用）
+python3 -c "import edge_tts; print('✓ edge-tts')" 2>/dev/null || echo "⚠ edge-tts 未安裝（需要時：pip install edge-tts）"
 
-# 4. 音頻檔案是否存在
-ls site/20260528澎湖四日遊/src/public/audio/coldopen/1.mp3 2>/dev/null && echo "✓ 音頻已合成" || echo "✗ 音頻缺失，需要：cd site/20260528澎湖四日遊/src && PRESENTATION_TTS=edge-tts npm run synthesize-audio"
-
-# 5. 各旅遊專案 Phase 1 文件（article.md / script.md / outline.md）
+# 4. 各簡報 Phase 1 文件
 for project in site/*/; do
   name=$(basename "$project")
   missing=""
-  [ -f "${project}article.md" ] || missing="${missing} article.md"
-  [ -f "${project}script.md"  ] || missing="${missing} script.md"
-  [ -f "${project}outline.md" ] || missing="${missing} outline.md"
+  [ -f "${project}article.md" ] || [ -f "${project}script.md" ] || missing="article.md 或 script.md"
   if [ -z "$missing" ]; then
-    echo "✓ ${name}：Phase 1 文件齊全"
+    echo "✓ ${name}：內容稿已備妥"
   else
-    echo "✗ ${name}：缺少${missing}（Phase 1 尚未完成）"
+    echo "✗ ${name}：缺少 ${missing}（Phase 1 尚未完成）"
   fi
 done
 ```
 
-檢查完畢後，簡短回報結果，缺什麼就說要裝什麼，不要讓使用者自己發現。
+## 專案總覽
 
-這是一個用 `web-video-presentation` skill 製作的家族旅遊說明影片。
-產出兩個版本：**網頁版**（現場講解 / 投影）+ **手機版**（LINE 分享），兩版皆支援口播音頻。
+每個簡報放在 `site/<簡報名稱>/`，各有自己的 `CLAUDE.md` 記錄章節、指令、主題色。
 
-## 專案狀態
+| 簡報 | 狀態 | 章節 / Steps |
+|---|---|---|
+| 20260612-ai-collab-report | ✅ 完成 | 11 章，暖色 Keynote，口播稿 + TTS，port 5174 |
+| 20260612-ai-collab-report-pic | ✅ 完成 | 11 章，Vivid Dark 圖像版，無音頻，全螢幕，port 5180 |
 
-**已完成** — 6 章 31 步全部實作，音頻合成完畢。
+## 藍圖（BLUEPRINT.md）規則
 
-| 章節 | 標題 | Steps | CSS prefix |
-|---|---|---|---|
-| coldopen | 開場：九個人，澎湖見 | 4 | `.co-` |
-| day1 | Day 1：花火慶典日 | 6 | `.d1-` |
-| day2 | Day 2：員貝島嶼遊 & 水族館 | 6 | `.d2-` |
-| day3 | Day 3：西嶼探秘 & 晶翔號夜釣 | 5 | `.d3-` |
-| day4 | Day 4：市區巡禮，圓滿賦歸 | 4 | `.d4-` |
-| must-know | 出發前必知 & 伴手禮攻略 | 6 | `.mk-` |
+**藍圖是給 Claude 讀的快速索引**，讓每次 session 不需重新掃描整個目錄。
+
+### 統一檔名
+所有藍圖檔統一命名為 `BLUEPRINT.md`（取代舊的 `INDEX.md`）。
+
+### 自動觸發原則
+Claude 進入任何目錄時，依以下規則判斷是否需要建立或更新藍圖：
+
+| 目錄類型 | 藍圖檔案 | 觸發條件 |
+|---|---|---|
+| `site/{專案}/` | 該專案的 `CLAUDE.md`（兼作藍圖） | 新增章節、異動 step 時自動更新 |
+| `doc_source/` 或素材目錄 | `BLUEPRINT.md` | 新增檔案 / 子目錄時自動更新 |
+| 根目錄 | 本 `CLAUDE.md`（兼作藍圖） | 新增專案或框架規則時自動更新 |
+
+### 自動建立時機
+若進入一個有實質內容（多個檔案或子目錄）但**沒有** `BLUEPRINT.md` 的目錄，**立刻建立**，格式：
+```markdown
+# BLUEPRINT — {目錄名稱}
+> 最後更新：YYYY-MM-DD
+
+## 目錄結構
+（子目錄清單 + 一行說明）
+
+## 檔案索引
+| 檔案 | 類型 | 內容摘要 |
+|---|---|---|
+```
+
+### 更新時機
+新增 / 刪除 / 重命名任何檔案後，**同步更新對應的 BLUEPRINT.md 或 CLAUDE.md**。
+
+---
 
 ## 目錄結構
 
 ```
-web-video/
-├── CLAUDE.md             ← 你在這裡
-├── _skill/travel/        # 旅遊簡報 SOP（SKILL.md + _references/）
+project-root/
+├── CLAUDE.md               ← 你在這裡（通用規則 + 根藍圖）
+├── _skill/
+│   └── company-report/
+│       └── SKILL.md        ← 工作流程 + 踩過的坑（/company-report 技能）
+├── doc_source/
+│   └── BLUEPRINT.md        ← 素材目錄藍圖（給 Claude 快速索引用）
 └── site/
-    └── 20260528澎湖四日遊/      ← 每個行程一個資料夾
-        ├── doc/                  # 原始素材（圖片 / PDF）
-        ├── article.md            # 原始行程資料
-        ├── script.md             # 口播稿
-        ├── outline.md            # 章節計畫
-        └── src/                  # Vite + React + TS 專案
-            ├── src/
-            │   ├── registry/chapters.ts            # 章節總登錄
-            │   ├── chapters/<NN>-<id>/             # 每章 .tsx + .css + narrations.ts
-            │   ├── components/
-            │   │   ├── MobilePage.tsx / .css       # 手機版（mp- prefix）
-            │   │   ├── SplitLayout.tsx             # 網頁版容器
-            │   │   ├── SplitEnding.tsx / .css      # 網頁版結尾資源面板
-            │   │   └── ProgressBar.tsx / ...       # 其他共用組件
-            │   ├── styles/tokens.css               # 主題色（藍天白雲）
-            │   └── hooks/useStepper.ts             # localStorage 已停用，刷新從頭
-            ├── public/
-            │   ├── audio/<chapter-id>/<N>.mp3      # 口播音頻（31 段）
-            │   ├── images/                         # cover / day1-4 / souvenir-*.jpg
-            │   └── 澎湖家族旅遊行程手冊.pdf        # 手機版 + 網頁版結尾可下載
-            ├── audio-segments.json
-            └── scripts/tts-providers/edge-tts.sh
+    └── <簡報名稱>/
+        ├── CLAUDE.md       # 該簡報的章節、指令、主題色
+        ├── doc/            # 原始素材（文章 / 圖片）
+        ├── article.md / script.md / outline.md
+        └── src/            # Vite + React + TS 專案
 ```
-
-## 常用指令
-
-```bash
-cd site/20260528澎湖四日遊/src
-npm install                 # 第一次 clone 後裝依賴
-npm run dev                 # 啟動 dev server
-
-npx tsc --noEmit            # TypeScript 檢查
-
-npm run extract-narrations  # 掃所有 narrations.ts → audio-segments.json
-PRESENTATION_TTS=edge-tts npm run synthesize-audio  # 合成音頻（增量）
-```
-
-## 版本網址
-
-| 版本 | 網址 | 說明 |
-|---|---|---|
-| 手機版 | `http://localhost:5173/web-video/?layout=mobile` | LINE 分享、隨時查閱 |
-| 網頁版 | `http://localhost:5173/web-video/` | 現場講解、投影 |
-
-> **網頁版操作**：`↓` 下一步 / `↑` 上一步；最後一步再按 `↓` 彈出結尾資源面板（含 PDF 下載 + 地圖連結），`↑` 可回去。
-
-## TTS 音頻合成
-
-使用 **edge-tts**（免費，Microsoft 神經語音，無需 API key）。
-
-```bash
-pip install edge-tts        # 第一次需要安裝
-PRESENTATION_TTS=edge-tts npm run synthesize-audio
-```
-
-- 聲音：`zh-TW-HsiaoChenNeural`（台灣中文女聲）
-- Provider 檔：`scripts/tts-providers/edge-tts.sh`
 
 ## 關鍵架構規則
 
 - `narrations.ts` 的長度 = step 數 = 音頻段數（**唯一真相源**，三者必須一致）
-- 每章有獨立 CSS prefix（`.co-` / `.d1-` / `.d2-` ...），禁止跨章污染
+- 每章有獨立 CSS prefix（`.ch01-` / `.ch02-` ...），禁止跨章污染
 - 新增章節後要 bump `STORAGE_KEY`（在 `hooks/useStepper.ts`）
 - 所有顏色、字體走 CSS token（`var(--accent)` 等），禁止寫死 hex / font name
 - `ProgressBar` 必須傳 `githubUrl={null}` — 否則底部會出現連到範本作者的 GitHub 圖示
+- Stage 尺寸有兩種模式（base.css 的 `.stage-frame`）：
+  - **錄屏版**（16:9 鎖比例）：`width: min(100vw, calc(100vh * 16 / 9)); height: min(100vh, calc(100vw * 9 / 16));`
+  - **純網頁主講版**（填滿視窗，無側欄留白）：`width: 100vw; height: 100vh;`
+  - 不用 JS transform scale，純 CSS 控制
+- 字體全用 `clamp()`，不寫死 px
 
 ## 新增章節流程
 
@@ -163,13 +166,52 @@ PRESENTATION_TTS=edge-tts npm run synthesize-audio
 2. 在 `src/registry/chapters.ts` 加 import + CHAPTERS 項目
 3. `npx tsc --noEmit` 確認零錯誤
 4. `npm run extract-narrations` 更新 audio-segments.json
-5. `PRESENTATION_TTS=edge-tts npm run synthesize-audio` 合成新段音頻
-6. Bump `STORAGE_KEY`（v5 → v6）
+5. `PRESENTATION_TTS=edge-tts npm run synthesize-audio` 合成新段音頻（有需要時）
+6. Bump `STORAGE_KEY`（v1 → v2）
 
-## 主題色（已從 sunset-zine 暖橘改為藍天白雲）
+## TTS 音頻合成
 
-`src/styles/tokens.css` 已修改：
-- `--surface: #f0f8ff`（雲白）
-- `--accent: #1e8fcc`（海洋藍）
-- `--text: #1a3858`（深海深藍）
-- 字體 / motion / border-radius 維持 sunset-zine 原設計
+```bash
+pip install edge-tts
+PRESENTATION_TTS=edge-tts npm run synthesize-audio
+```
+
+- 聲音：`zh-TW-HsiaoChenNeural`（台灣中文女聲）
+- Provider 檔：`src/scripts/tts-providers/edge-tts.sh`
+
+## 經驗累積規則（重要）
+
+每次完成章節或解決問題後，依**影響範圍**決定寫到哪裡：
+
+| 類型 | 寫到哪 | 例子 |
+|---|---|---|
+| 這個專案的結構異動 | `site/{專案}/CLAUDE.md` | 新增章節、調整 step 數、換圖片、改 port |
+| 可跨專案複用的技巧或踩坑 | `_skill/company-report/SKILL.md` | ImgCard 自然尺寸、vd-split、LineChart 圖例位置 |
+| 影響所有專案的框架規則 | 根目錄 `CLAUDE.md`（本檔） | Stage 兩種模式、新的架構原則 |
+
+### 寫到專案 CLAUDE.md 的格式
+直接更新對應的表格欄位（章節登錄、圖片清單等），不需要額外格式。
+
+### 寫到 SKILL.md 的格式
+```
+### N. 問題標題
+**問題**：描述現象
+**解法**：程式碼或步驟
+```
+
+這樣下一個 session 開啟任何簡報專案，都能自動繼承所有經驗。
+
+## Session 收尾 Checkpoint（每次對話結束前必做）
+
+**① 專案 `site/{專案}/CLAUDE.md`**
+- [ ] 新增 / 刪除章節 → 章節登錄表格已更新？
+- [ ] Step 數有變 → Steps 欄、STORAGE_KEY 已更新？
+- [ ] 新增圖片 → 圖片資源清單已補上？
+- [ ] Port / Stage 模式有改 → 基本資訊已更新？
+
+**② `_skill/company-report/SKILL.md`**
+- [ ] 踩到新坑 / 發現可複用技巧 → 已追加到「踩過的坑」？
+
+**③ 根目錄 `CLAUDE.md`（本檔）**
+- [ ] 新增簡報專案 → 專案總覽表格已補上？
+- [ ] 發現影響所有專案的框架規則 → 關鍵架構規則已更新？

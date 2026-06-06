@@ -1,0 +1,326 @@
+/* ─── ThreePhenomena — prefix: .tp- ─── */
+
+.tp-scene {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ═══ Step 0: Intro ═══ */
+
+.tp-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.tp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-mute);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.tp-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(48px, 5vw, 96px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+
+.tp-title-mute {
+  color: var(--text-mute);
+}
+
+.tp-circles {
+  display: flex;
+  gap: 20px;
+}
+
+.tp-circle {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 28px;
+  border-radius: var(--r-card);
+  background: var(--card-glass-bg);
+  border: 1px solid var(--card-glass-border);
+  box-shadow: var(--card-shadow);
+  animation: tp-rise 500ms ease both;
+}
+
+.tp-circle-num {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 0.68vw, 13px);
+  color: var(--accent);
+  letter-spacing: var(--track-caps);
+}
+
+.tp-circle-label {
+  font-family: var(--font-display-cn);
+  font-size: clamp(16px, 1.25vw, 24px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+/* ═══ Phenomenon shared header ═══ */
+
+.tp-phenomenon {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.tp-ph-header {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  animation: tp-rise 500ms ease both;
+}
+
+.tp-ph-num {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 0.68vw, 13px);
+  color: var(--accent);
+  letter-spacing: var(--track-caps);
+}
+
+.tp-ph-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(36px, 3.6vw, 64px);
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ═══ Step 1: Tool chain ═══ */
+
+.tp-tool-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tp-tool-chip {
+  padding: 10px 22px;
+  border-radius: var(--r-pill);
+  background: var(--surface-3);
+  border: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 0.84vw, 16px);
+  color: var(--text-2);
+  animation: tp-rise 400ms ease both;
+}
+
+.tp-conclusion-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 32px 36px;
+  border-radius: var(--r-card);
+  background: var(--card-glass-bg);
+  border: 1px solid var(--card-glass-border);
+  box-shadow: var(--card-shadow);
+}
+
+.tp-conclusion-bar {
+  width: 4px;
+  align-self: stretch;
+  background: var(--accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.tp-conclusion-text {
+  font-family: var(--font-display-cn);
+  font-size: clamp(18px, 1.46vw, 28px);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ═══ Step 2: Items ═══ */
+
+.tp-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tp-item-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  animation: tp-rise 400ms ease both;
+}
+
+.tp-item-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.tp-item-text {
+  font-family: var(--font-display-cn);
+  font-size: clamp(18px, 1.46vw, 28px);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ═══ Step 3: Amplify ═══ */
+
+.tp-amplify {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.tp-amp-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-mute);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.tp-amp-text {
+  font-family: var(--font-display-cn);
+  font-size: clamp(44px, 4.6vw, 88px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ═══ Step 4: Gap split ═══ */
+
+.tp-gap-split {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.tp-gap-card {
+  flex: 1;
+  padding: 40px 44px;
+  border-radius: var(--r-card);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: tp-rise 550ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.tp-gap-strong {
+  background: var(--card-glass-bg);
+  border: 1px solid var(--accent-glow);
+  box-shadow: var(--card-shadow);
+}
+
+.tp-gap-chaos {
+  background: var(--surface-3);
+  border: 1px solid var(--rule);
+  box-shadow: var(--card-shadow);
+  animation-delay: 150ms;
+}
+
+.tp-gap-label {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-mute);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.tp-gap-result {
+  font-family: var(--font-display-cn);
+  font-size: clamp(20px, 1.56vw, 30px);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.tp-gap-dims {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tp-gap-dim {
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  background: var(--accent-soft);
+  font-family: var(--font-display-cn);
+  font-size: clamp(12px, 0.78vw, 15px);
+  color: var(--accent);
+}
+
+.tp-gap-vs {
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 0.84vw, 16px);
+  color: var(--text-faint);
+  letter-spacing: var(--track-caps);
+  flex-shrink: 0;
+}
+
+/* ═══ Step 5: Conclusion ═══ */
+
+.tp-conclusion-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.tp-concl-text {
+  font-family: var(--font-display-cn);
+  font-size: clamp(48px, 5vw, 96px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+
+.tp-concl-sub {
+  font-family: var(--font-display-cn);
+  font-size: clamp(22px, 1.77vw, 34px);
+  color: var(--text-2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.tp-em {
+  color: var(--accent);
+}
+
+.tp-amp-em {
+  color: var(--accent);
+}
+
+.tp-em-warn {
+  color: var(--text-faint);
+}
+
+/* ═══ Keyframes ═══ */
+
+@keyframes tp-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

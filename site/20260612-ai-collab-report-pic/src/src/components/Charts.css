@@ -1,0 +1,49 @@
+/* ─── MaturityBars ─── */
+.mb-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.mb-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mb-label {
+  font-family: var(--font-display-cn);
+  font-size: clamp(13px, 0.84vw, 16px);
+  font-weight: 600;
+  color: var(--text);
+  flex: 0 0 150px;
+}
+
+.mb-track {
+  flex: 1;
+  height: 12px;
+  background: var(--surface-3);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.mb-fill {
+  height: 100%;
+  border-radius: 6px;
+  animation: mb-grow 900ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  box-shadow: 0 0 12px currentColor;
+}
+
+.mb-pct {
+  font-family: var(--font-mono);
+  font-size: clamp(13px, 0.84vw, 16px);
+  font-weight: 700;
+  flex: 0 0 48px;
+  text-align: right;
+}
+
+@keyframes mb-grow {
+  from { width: 0 !important; }
+  to   { }
+}

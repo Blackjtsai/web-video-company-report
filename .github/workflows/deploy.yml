@@ -3,38 +3,71 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [master]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm install
-        working-directory: presentation
+      - name: Build ai-collab-report (暖色版)
+        run: |
+          cd site/20260612-ai-collab-report/src
+          npm ci
+          npm run build
 
-      - name: Build
-        run: npm run build
-        working-directory: presentation
+      - name: Build ai-collab-report-pic (Vivid Dark 版)
+        run: |
+          cd site/20260612-ai-collab-report-pic/src
+          npm ci
+          npm run build
+
+      - name: Assemble deploy folder
+        run: |
+          mkdir -p deploy/20260612-ai-collab-report
+          mkdir -p deploy/20260612-ai-collab-report-pic
+          cp -r site/20260612-ai-collab-report/src/dist/. deploy/20260612-ai-collab-report/
+          cp -r site/20260612-ai-collab-report-pic/src/dist/. deploy/20260612-ai-collab-report-pic/
+          cat > deploy/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="zh-TW">
+          <head><meta charset="UTF-8"><title>Web Video 簡報</title>
+          <style>body{font-family:sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;gap:24px;background:#050810;color:#f1f5f9;}a{color:#8B5CF6;font-size:1.2rem;}</style>
+          </head>
+          <body>
+            <h1>Web Video 簡報</h1>
+            <a href="20260612-ai-collab-report/">AI 協作報告（暖色版）</a>
+            <a href="20260612-ai-collab-report-pic/">AI 協作報告（Vivid Dark 圖像版）</a>
+          </body>
+          </html>
+          EOF
 
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: presentation/dist
+          path: deploy
 
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - uses: actions/deploy-pages@v4
         id: deployment

@@ -1,0 +1,9 @@
+﻿20250121 系統代碼:ESP ,Unnamed: 1,Unnamed: 2,Unnamed: 3,備註
+,申請項目,狀態,預計完成日,
+1.0,Rancher(Docker),申請完成，Brian權限補申請,已完成,
+2.0,"Domain , L4 & firewall",申請完成 ,已完成,
+3.0,憑證,申請完成,已完成,
+4.0,EDB,申請中  ,TBD,Jeep: 1/17提供VM給DBA安裝 AI2.0 DB
+5.0,NAS,申請完成,已完成,
+6.0,ELK,申請完成,已完成,SongRu : 建置中
+7.0,Redis,自行安裝,TBD,

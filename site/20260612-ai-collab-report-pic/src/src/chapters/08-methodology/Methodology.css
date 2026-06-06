@@ -1,0 +1,19 @@
+/* ─── Methodology CH08 — prefix: .mt- ─── */
+.mt-scene { flex-direction: column; }
+.mt-anim  { animation: vd-rise 500ms ease both; }
+
+.mt-intro { display: flex; flex-direction: column; gap: 44px; max-width: 900px; width: 100%; }
+
+.mt-principles { display: flex; flex-direction: column; gap: 32px; width: 100%; max-width: 1000px; }
+.mt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.mt-card { display: flex; flex-direction: column; gap: 12px; padding: 24px 28px; }
+.mt-icon  { font-size: clamp(28px, 2.08vw, 40px); }
+.mt-title { font-family: var(--font-display-cn); font-size: clamp(16px, 1.15vw, 22px); font-weight: 700; color: var(--text); }
+.mt-desc  { font-family: var(--font-display-cn); font-size: clamp(13px, 0.94vw, 18px); color: var(--text-mute); }
+
+.mt-flow { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+.mt-pmsa { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }

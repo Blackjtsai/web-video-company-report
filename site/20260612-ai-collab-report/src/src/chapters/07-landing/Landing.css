@@ -1,0 +1,248 @@
+/* ─── Landing — prefix: .ld- ─── */
+
+.ld-scene {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ═══ Step 0: Intro ═══ */
+
+.ld-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.ld-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-mute);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.ld-intro-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(44px, 4.8vw, 92px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ═══ Step 1: Roadmap ═══ */
+
+.ld-roadmap-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.ld-roadmap-title {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-mute);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.ld-roadmap {
+  display: flex;
+  gap: 0;
+  width: 100%;
+}
+
+.ld-rm-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: ld-rise 500ms ease both;
+}
+
+.ld-rm-phase {
+  font-family: var(--font-mono);
+  font-size: clamp(11px, 0.68vw, 13px);
+  color: var(--accent);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.ld-rm-connector {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.ld-rm-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.ld-rm-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), var(--rule));
+}
+
+.ld-rm-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 16px;
+}
+
+.ld-rm-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(18px, 1.46vw, 28px);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ld-rm-desc {
+  font-family: var(--font-display-cn);
+  font-size: clamp(13px, 0.84vw, 16px);
+  color: var(--text-mute);
+  line-height: 1.5;
+}
+
+/* ═══ Step 2: First win ═══ */
+
+.ld-win-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.ld-win-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-mute);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.ld-win-text {
+  font-family: var(--font-display-cn);
+  font-size: clamp(52px, 5.5vw, 104px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0;
+}
+
+.ld-win-sub {
+  font-family: var(--font-display-cn);
+  font-size: clamp(18px, 1.35vw, 26px);
+  color: var(--text-mute);
+  margin: 0;
+}
+
+/* ═══ Step 3: Toolkit ═══ */
+
+.ld-toolkit-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.ld-toolkit-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: ld-rise 400ms ease both;
+}
+
+.ld-toolkit-eyebrow {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--text-mute);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+}
+
+.ld-toolkit-title {
+  font-family: var(--font-display-cn);
+  font-size: clamp(36px, 3.6vw, 64px);
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.ld-toolkit-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ld-toolkit-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 28px;
+  border-radius: var(--r-card);
+  background: var(--card-glass-bg);
+  border: 1px solid var(--card-glass-border);
+  box-shadow: var(--card-shadow);
+  animation: ld-rise 400ms ease both;
+}
+
+.ld-toolkit-num {
+  font-family: var(--font-mono);
+  font-size: clamp(10px, 0.63vw, 12px);
+  color: var(--accent);
+  letter-spacing: var(--track-caps);
+  flex-shrink: 0;
+}
+
+.ld-toolkit-name {
+  font-family: var(--font-mono);
+  font-size: clamp(15px, 1.04vw, 20px);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ═══ Step 4: Conclusion ═══ */
+
+.ld-concl-wrap {
+  max-width: 900px;
+  width: 100%;
+}
+
+.ld-concl-text {
+  font-family: var(--font-display-cn);
+  font-size: clamp(40px, 4.17vw, 80px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin: 0;
+}
+
+.ld-em {
+  color: var(--accent);
+}
+
+/* ═══ Keyframes ═══ */
+
+@keyframes ld-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
