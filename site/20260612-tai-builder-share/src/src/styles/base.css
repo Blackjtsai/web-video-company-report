@@ -120,13 +120,13 @@ body {
   position: fixed;
   inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  align-items: stretch;
   background: var(--shell);
 }
 .stage-frame {
   position: relative;
-  width: 100vw;
+  flex: 1;
   height: 100vh;
   background: var(--surface);
   overflow: hidden;

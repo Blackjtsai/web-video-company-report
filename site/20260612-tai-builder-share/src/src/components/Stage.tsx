@@ -3,9 +3,10 @@ import type { ReactNode } from "react";
 interface Props {
   onAdvance(): void;
   children: ReactNode;
+  sidebar?: ReactNode;
 }
 
-export function Stage({ onAdvance, children }: Props) {
+export function Stage({ onAdvance, children, sidebar }: Props) {
   return (
     <div className="app-shell">
       <div
@@ -18,6 +19,7 @@ export function Stage({ onAdvance, children }: Props) {
       >
         {children}
       </div>
+      {sidebar}
     </div>
   );
 }
