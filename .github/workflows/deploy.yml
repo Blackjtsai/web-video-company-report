@@ -42,7 +42,7 @@ jobs:
           mkdir -p deploy/20260612-ai-collab-report-pic
           cp -r site/20260612-ai-collab-report/src/dist/. deploy/20260612-ai-collab-report/
           cp -r site/20260612-ai-collab-report-pic/src/dist/. deploy/20260612-ai-collab-report-pic/
-          cp index.html deploy/index.html
+          cp site/index.html deploy/index.html
 
       - uses: actions/configure-pages@v4
         with:
