@@ -9,6 +9,7 @@ interface Props {
 export function Stage({ onAdvance, children, sidebar }: Props) {
   return (
     <div className="app-shell">
+      {sidebar}
       <div
         className="stage-frame"
         onClick={(e) => {
@@ -19,7 +20,6 @@ export function Stage({ onAdvance, children, sidebar }: Props) {
       >
         {children}
       </div>
-      {sidebar}
     </div>
   );
 }
