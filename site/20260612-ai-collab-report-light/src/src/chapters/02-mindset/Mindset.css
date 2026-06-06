@@ -1,0 +1,20 @@
+/* ─── Mindset CH02 — prefix: .ms- ─── */
+.ms-scene { flex-direction: column; }
+.ms-anim  { animation: vd-rise 500ms ease both; }
+
+.ms-intro { display: flex; flex-direction: column; gap: 36px; max-width: 800px; }
+.ms-principles { display: flex; gap: 16px; }
+.ms-pill { padding: 10px 24px; border-radius: 999px; border: 1.5px solid; font-family: var(--font-display-cn); font-size: clamp(16px, 1.25vw, 24px); font-weight: 700; }
+
+.ms-inner-outer { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+.ms-split { display: flex; gap: 24px; align-items: stretch; }
+.ms-box { flex: 1; padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; }
+.ms-box-icon { font-size: clamp(28px, 2.5vw, 48px); }
+.ms-box-title { font-family: var(--font-display-cn); font-size: clamp(22px, 1.77vw, 34px); font-weight: 900; }
+.ms-box-items { display: flex; flex-direction: column; gap: 8px; }
+.ms-item { font-family: var(--font-display-cn); font-size: clamp(14px, 0.94vw, 18px); color: var(--text-2); }
+.ms-vs { font-family: var(--font-mono); font-size: clamp(12px, 0.84vw, 16px); color: var(--text-faint); flex-shrink: 0; align-self: center; text-align: center; line-height: 1.6; }
+
+.ms-quote { display: flex; flex-direction: column; gap: 32px; max-width: 800px; }
+.ms-q-text { font-family: var(--font-display-cn); font-size: clamp(44px, 4.8vw, 92px); font-weight: 900; line-height: 1.2; letter-spacing: -0.025em; margin: 0; color: var(--text); }
+.ms-q-sub { font-family: var(--font-display-cn); font-size: clamp(20px, 1.56vw, 30px); color: var(--text-2); margin: 0; }

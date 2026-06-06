@@ -18,6 +18,13 @@ Hi！我是你的 Web Video 簡報助理 🎬
 要開始新簡報，把文章 / 口播稿放進專案資料夾，跟我說「幫我做成簡報」就可以了！
 ```
 
+## ✅ Checkpoint — 觸發方式
+
+當使用者說「**做 Checkpoint**」或「**/checkpoint**」時，
+自動執行 `_skill/checkpoint/SKILL.md` 的步驟，**不需要使用者再逐項提示**。
+
+---
+
 ## 🎬 簡報助理 — 觸發方式
 
 當使用者說「**幫我做簡報**」或提到要做網頁影片簡報時，
@@ -25,7 +32,7 @@ Hi！我是你的 Web Video 簡報助理 🎬
 
 1. **簡報專案名稱**（格式建議：`YYYYMMDD主題`，例如 `20260901Q3產品發表`）
 2. **素材位置**（文章 / 口播稿 / 圖片目前放在哪裡？預設 `./doc_source/`）
-3. **主題風格**（偏暖色 / 冷色 / 科技感 / 清爽？或直接說「你幫我選」）
+3. **主題風格**（偏暖色 / 冷色 / 科技感 / 清爽？或直接指定 `.visual-style/` 裡的 profile 名稱，例如 `eason-black-orange`；或說「你幫我選」）
 
 收到三個答案後，建立結構再進入 Phase 1：
 
@@ -93,6 +100,7 @@ done
 |---|---|---|
 | 20260612-ai-collab-report | ✅ 完成 | 11 章，暖色 Keynote，口播稿 + TTS，port 5174 |
 | 20260612-ai-collab-report-pic | ✅ 完成 | 11 章，Vivid Dark 圖像版，無音頻，全螢幕，port 5180 |
+| 20260612-ai-collab-report-light | ✅ 完成 | 11 章，Corporate Light 企業淺色版，無音頻，全螢幕，port 5181 |
 
 ## 藍圖（BLUEPRINT.md）規則
 
@@ -134,9 +142,16 @@ Claude 進入任何目錄時，依以下規則判斷是否需要建立或更新�
 ```
 project-root/
 ├── CLAUDE.md               ← 你在這裡（通用規則 + 根藍圖）
+├── .visual-style/          ← 視覺風格 profile（每份簡報可指定一個套用）
+│   ├── eason-black-orange.md
+│   ├── eason-tai-builder.md
+│   ├── corporate-light.md
+│   └── tech-minimal-dark.md
 ├── _skill/
-│   └── company-report/
-│       └── SKILL.md        ← 工作流程 + 踩過的坑（/company-report 技能）
+│   ├── company-report/
+│   │   └── SKILL.md        ← 工作流程 + 踩過的坑（/company-report 技能）
+│   └── checkpoint/
+│       └── SKILL.md        ← Session 收尾回寫流程（/checkpoint 技能）
 ├── doc_source/
 │   └── BLUEPRINT.md        ← 素材目錄藍圖（給 Claude 快速索引用）
 └── site/
@@ -146,6 +161,21 @@ project-root/
         ├── article.md / script.md / outline.md
         └── src/            # Vite + React + TS 專案
 ```
+
+## 🎨 視覺風格 Profile（`.visual-style/`）
+
+開始新簡報時，讀取對應 profile 後嚴格遵守其排版規範：
+
+| Profile | 風格 | 適用場景 |
+|---|---|---|
+| `eason-black-orange` | 黑底橘字，Klimt 風，零漸層零圓角 | 技術演講、AI/工程主題 |
+| `eason-tai-builder` | TAI-Builder 流程圖 + AI 治理版面 | 工作流程說明、AI 協作方法論 |
+| `corporate-light` | 白底深藍，企業 SaaS 風 | 主管報告、財務簡報 |
+| `tech-minimal-dark` | 深藍賽博朋克，IDE 風 | DevOps、資料管道、基礎設施 |
+
+使用方式：確認風格後，**立刻讀取 `.visual-style/<profile>.md`**，之後所有 CSS token、版面、圓角設定全依該檔規範。
+
+---
 
 ## 關鍵架構規則
 

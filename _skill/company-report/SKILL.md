@@ -428,5 +428,43 @@ const padT = 52;
 **規則**：`narrations.ts` 是唯一真相源。每次改 step 數：
 1. 同步更新 `narrations.ts`（空字串數量 = step 數）
 2. Bump `STORAGE_KEY`（`hooks/useStepper.ts`：`v1` → `v2` → ...）
+3. 同步更新 `site/index.html` 對應連結的 `onclick` key 名稱
+
+### 12. GitHub Pages 部署 Vite 多專案
+
+**情境**：同一個 repo 下有多個 Vite 子專案，要一起部署到 GitHub Pages。
+**解法**：
+
+① 每個子專案的 `vite.config.ts` 加 `base`：
+```ts
+base: "/repo-name/project-folder-name/",
+```
+
+② GitHub Actions workflow 分別 build，再合併到 `deploy/` 資料夾：
+```yaml
+- run: |
+    cp -r site/project-a/src/dist/. deploy/project-a/
+    cp -r site/project-b/src/dist/. deploy/project-b/
+    cp site/index.html deploy/index.html
+- uses: actions/configure-pages@v4
+  with:
+    enablement: true   # 自動開啟 Pages，不需手動設定
+- uses: actions/upload-pages-artifact@v3
+  with:
+    path: deploy
+```
+
+③ `site/index.html` 是首頁選單，commit 進 repo，workflow 直接 `cp` 過去。
+
+### 13. index.html 點連結重置簡報進度
+
+**問題**：Vite 簡報用 `localStorage` 記住進度，從首頁再點進去會繼續上次位置，而非從第一頁開始。
+**解法**：在 `site/index.html` 的連結加 `onclick`：
+```html
+<a href="project-path/" onclick="localStorage.removeItem('STORAGE_KEY名稱')">
+  前往簡報 →
+</a>
+```
+**注意**：STORAGE_KEY bump 時，`index.html` 的 onclick 也要同步更新。
 
 ---

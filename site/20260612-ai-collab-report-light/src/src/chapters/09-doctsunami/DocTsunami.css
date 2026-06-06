@@ -1,0 +1,23 @@
+/* ─── DocTsunami CH09 — prefix: .dt- ─── */
+.dt-scene { flex-direction: column; }
+.dt-anim  { animation: vd-rise 500ms ease both; }
+
+.dt-intro { display: flex; flex-direction: column; gap: 44px; max-width: 900px; width: 100%; }
+
+.dt-wave  { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+.dt-types { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.dt-type-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  border: 1.5px solid;
+  border-radius: 8px;
+  background: rgba(13,19,38,0.6);
+}
+.dt-chip-label { font-family: var(--font-mono); font-size: clamp(12px, 0.83vw, 16px); font-weight: 700; letter-spacing: 0.08em; }
+.dt-chip-desc  { font-family: var(--font-display-cn); font-size: clamp(12px, 0.78vw, 15px); color: var(--text-mute); }
+
+.dt-model   { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+.dt-flowmap { display: flex; flex-direction: column; gap: 28px; width: 100%; max-width: 960px; }
+.dt-big-img { width: 100%; height: 300px; }

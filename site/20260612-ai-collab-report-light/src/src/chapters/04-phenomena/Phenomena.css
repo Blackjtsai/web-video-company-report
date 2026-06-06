@@ -1,0 +1,21 @@
+/* ─── Phenomena CH04 — prefix: .ph- ─── */
+.ph-scene { flex-direction: column; }
+.ph-anim  { animation: vd-rise 500ms ease both; }
+
+.ph-intro { display: flex; flex-direction: column; gap: 36px; max-width: 900px; width: 100%; }
+.ph-circles { display: flex; gap: 20px; }
+.ph-circle { flex: 1; padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; border-width: 1.5px; }
+.ph-circle-num { font-family: var(--font-mono); font-size: clamp(10px, 0.63vw, 12px); font-weight: 700; letter-spacing: 0.1em; }
+.ph-circle-title { font-family: var(--font-display-cn); font-size: clamp(18px, 1.46vw, 28px); font-weight: 700; }
+
+.ph-expand { display: flex; gap: 40px; align-items: flex-start; width: 100%; max-width: 960px; }
+.ph-left { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.ph-num { font-family: var(--font-mono); font-size: clamp(11px, 0.68vw, 13px); font-weight: 700; letter-spacing: 0.1em; }
+.ph-title { font-family: var(--font-display-cn); font-size: clamp(28px, 2.6vw, 48px); font-weight: 900; letter-spacing: -0.02em; }
+.ph-items { display: flex; flex-direction: column; gap: 12px; }
+.ph-item { display: flex; align-items: center; gap: 14px; font-family: var(--font-display-cn); font-size: clamp(16px, 1.15vw, 22px); color: var(--text-2); }
+.ph-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.ph-key { padding: 16px 20px; border-left: 3px solid; font-family: var(--font-display-cn); font-size: clamp(14px, 0.94vw, 18px); color: var(--text-mute); line-height: 1.6; }
+.ph-right { display: flex; align-items: center; justify-content: center; min-width: 0; }
+.ph-right .ic-card { width: auto; height: auto; flex-shrink: 1; }
+.ph-right .ic-thumb { max-width: 100%; max-height: 52vh; width: auto; height: auto; }

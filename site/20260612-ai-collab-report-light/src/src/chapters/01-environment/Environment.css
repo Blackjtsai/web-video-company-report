@@ -1,0 +1,19 @@
+/* ─── Environment CH01 — prefix: .ev- ─── */
+.ev-scene { flex-direction: column; }
+
+.ev-hero  { display: flex; flex-direction: column; gap: 28px; max-width: 900px; }
+.ev-sub   { font-family: var(--font-display-cn); font-size: clamp(16px, 1.25vw, 24px); color: var(--text-mute); line-height: 1.7; margin: 0; }
+
+.ev-env   { display: flex; flex-direction: column; gap: 36px; width: 100%; max-width: 960px; }
+.ev-cards { display: flex; gap: 20px; }
+.ev-card  { flex: 1; padding: 32px 28px; display: flex; flex-direction: column; gap: 14px; animation: vd-rise 500ms ease both; }
+.ev-icon  { font-size: clamp(28px, 2.5vw, 48px); }
+.ev-card-name { font-family: var(--font-display-cn); font-size: clamp(18px, 1.46vw, 28px); font-weight: 700; color: var(--text); }
+.ev-card-desc { font-size: clamp(13px, 0.84vw, 16px); }
+
+.ev-question { display: flex; flex-direction: column; gap: 28px; max-width: 900px; }
+.ev-q-lead { font-family: var(--font-display-cn); font-size: clamp(22px, 1.77vw, 34px); color: var(--text-2); line-height: 1.6; margin: 0; }
+.ev-q-big  { font-family: var(--font-display-cn); font-size: clamp(36px, 3.6vw, 64px); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
+
+.ev-sdlc  { display: flex; flex-direction: column; gap: 32px; width: 100%; max-width: 960px; }
+.ev-anim  { animation: vd-rise 500ms ease both; }

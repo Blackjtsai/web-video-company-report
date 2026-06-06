@@ -1,0 +1,69 @@
+/* ─────────────────────────────────────────────────────────────────────
+ * Theme · corporate-light
+ *   Studio white + executive navy / slate-blue accents.
+ *   Clean, trustworthy, enterprise SaaS — for executive & stakeholder presentations.
+ * ───────────────────────────────────────────────────────────────────── */
+:root {
+  /* ─── palette ─── */
+  --shell:        #F8F9FA;
+  --surface:      #FFFFFF;
+  --surface-2:    #F0F4F8;
+  --surface-3:    #E8EFF6;
+  --text:         #1C1C1E;
+  --text-2:       #3C3C43;
+  --text-mute:    #6E6E73;
+  --text-faint:   #AEAEB2;
+  --rule:         #E5E5EA;
+  --accent:       #4A90E2;
+  --accent-soft:  rgba(74, 144, 226, 0.12);
+  --accent-glow:  rgba(74, 144, 226, 0.25);
+
+  /* ─── chart / highlight colors ─── */
+  --cyan:         #0071E3;
+  --cyan-soft:    rgba(0, 113, 227, 0.12);
+  --green:        #34C759;
+  --green-soft:   rgba(52, 199, 89, 0.12);
+  --amber:        #FF9500;
+  --amber-soft:   rgba(255, 149, 0, 0.12);
+  --rose:         #FF3B30;
+  --rose-soft:    rgba(255, 59, 48, 0.12);
+  --indigo:       #003366;
+
+  /* ─── fonts ─── */
+  --font-display-cn: "Noto Sans SC", "Source Han Sans SC", -apple-system, sans-serif;
+  --font-display-en: "Inter", "SF Pro Display", -apple-system, sans-serif;
+  --font-body:       "Inter", "Noto Sans SC", -apple-system, sans-serif;
+  --font-mono:       "JetBrains Mono", "SF Mono", ui-monospace, monospace;
+  --font-features:   "cv11", "ss01", "tnum";
+
+  /* ─── motion ─── */
+  --dur-base:       350ms;
+  --dur-slow:       550ms;
+  --dur-cinematic:  800ms;
+
+  /* ─── card identity ─── */
+  --r-card:        10px;
+  --r-stage:       0;
+  --rule-w:        1px;
+  --rule-style:    solid;
+  --hero-num-font:    var(--font-display-en);
+  --hero-num-style:   normal;
+  --hero-num-weight:  700;
+  --hero-num-track:   -0.04em;
+  --stage-pad-x:   96px;
+  --stage-pad-y:   72px;
+  --card-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.08);
+  --card-glass-bg:     rgba(255, 255, 255, 0.85);
+  --card-glass-border: rgba(0, 0, 0, 0.08);
+  --shadow-stage:
+    0 20px 60px rgba(0, 0, 0, 0.10),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+
+  /* ─── subtle grid pattern ─── */
+  --surface-pattern:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  --surface-pattern-size: 48px 48px;
+}
