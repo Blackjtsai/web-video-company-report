@@ -36,12 +36,28 @@ jobs:
           npm ci
           npm run build
 
+      - name: Build ai-collab-report-light (Corporate Light 版)
+        run: |
+          cd site/20260612-ai-collab-report-light/src
+          npm ci
+          npm run build
+
+      - name: Build tai-builder-share (TAI-Builder 黑橘版)
+        run: |
+          cd site/20260612-tai-builder-share/src
+          npm ci
+          npm run build
+
       - name: Assemble deploy folder
         run: |
           mkdir -p deploy/20260612-ai-collab-report
           mkdir -p deploy/20260612-ai-collab-report-pic
-          cp -r site/20260612-ai-collab-report/src/dist/. deploy/20260612-ai-collab-report/
-          cp -r site/20260612-ai-collab-report-pic/src/dist/. deploy/20260612-ai-collab-report-pic/
+          mkdir -p deploy/20260612-ai-collab-report-light
+          mkdir -p deploy/20260612-tai-builder-share
+          cp -r site/20260612-ai-collab-report/src/dist/.       deploy/20260612-ai-collab-report/
+          cp -r site/20260612-ai-collab-report-pic/src/dist/.   deploy/20260612-ai-collab-report-pic/
+          cp -r site/20260612-ai-collab-report-light/src/dist/. deploy/20260612-ai-collab-report-light/
+          cp -r site/20260612-tai-builder-share/src/dist/.      deploy/20260612-tai-builder-share/
           cp site/index.html deploy/index.html
 
       - uses: actions/configure-pages@v4
