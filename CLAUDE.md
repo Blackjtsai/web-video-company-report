@@ -216,6 +216,7 @@ PRESENTATION_TTS=edge-tts npm run synthesize-audio
 - [ ] 新增簡報專案 → 專案總覽表格已補上？
 - [ ] 發現影響所有專案的框架規則 → 關鍵架構規則已更新？
 
-**④ `index.html`（push 前必做）**
-- [ ] 新增簡報專案 → 在 `site/index.html` 的表格加一行（序號、名稱、連結、建立日期）？
-- [ ] 格式：複製現有 `<tr>` 區塊，修改欄位內容即可
+**④ `site/index.html`（push 前必做）**
+- [ ] 新增簡報專案 → 在表格加一行（序號、名稱、連結、建立日期）？
+- [ ] 新增簡報的連結要加 `onclick="localStorage.removeItem('該專案的STORAGE_KEY')"` — 確保從首頁進入時從第一頁開始
+- [ ] STORAGE_KEY 有 bump → 同步更新 index.html 對應連結的 onclick key 名稱
