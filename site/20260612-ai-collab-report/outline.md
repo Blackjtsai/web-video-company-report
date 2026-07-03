@@ -194,21 +194,21 @@
 
 ### 4. prompt-to-harness
 - ✓ 三階段進化圖（純視覺設計）
-- ✓ `doc_source/AI協作SOP/13-Eason-Style 與 Harness Engineering 解構.png`（可截圖引用）
+- ✓ `docs/materials/AI協作SOP/13-Eason-Style 與 Harness Engineering 解構.png`（可截圖引用）
 
 ### 5. ai-ecosystem
-- ✓ `doc_source/AI協作SOP/Eason-Style AI 協作框架解析.png`（四層架構 + 四大格局）
-- ✓ `doc_source/AI協作SOP/TAI-Builder 協作流程圖.png`（協作閉環流程）
-- ✓ `doc_source/AI協作SOP/2.png`（流程架構圖，深藍色）
+- ✓ `docs/materials/AI協作SOP/Eason-Style AI 協作框架解析.png`（四層架構 + 四大格局）
+- ✓ `docs/materials/AI協作SOP/TAI-Builder 協作流程圖.png`（協作閉環流程）
+- ✓ `docs/materials/AI協作SOP/2.png`（流程架構圖，深藍色）
 
 ### 6. maturity
-- ✓ `doc_source/AI工具協作生態因應與研討/AI協作成熟度.png`（五構面成熟度表）
+- ✓ `docs/materials/AI工具協作生態因應與研討/AI協作成熟度.png`（五構面成熟度表）
 - ✓ 工作流語言橫向圖（純視覺設計）
 
 ### 7. landing
-- ✓ `doc_source/打造生產級 Claude Code 程式工作流/現在在哪-下一步.png`（路線圖）
+- ✓ `docs/materials/打造生產級 Claude Code 程式工作流/現在在哪-下一步.png`（路線圖）
 - ✓ Roadmap 時間軸（純視覺設計）
 
 ### 8. closing
-- ✓ `doc_source/AI協作SOP/14-Eason-Style AI協作工法解構圖.png`（成熟度模型圖）
+- ✓ `docs/materials/AI協作SOP/14-Eason-Style AI協作工法解構圖.png`（成熟度模型圖）
 - ✓ 三大金句（純文字設計）

@@ -58,7 +58,7 @@ npx tsc --noEmit
 
 ## 圖片資源
 
-圖檔放在 `src/public/images/`（從 doc_source/ 複製）：
+圖檔放在 `src/public/images/`（從 docs/materials/ 複製）：
 
 | 檔名 | 用於 |
 |---|---|

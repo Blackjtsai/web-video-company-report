@@ -31,7 +31,7 @@ Hi！我是你的 Web Video 簡報助理 🎬
 自動呼叫 `/company-report` 技能（`.claude/skills/company-report/SKILL.md`），並**先問使用者以下三件事**：
 
 1. **簡報專案名稱**（格式建議：`YYYYMMDD主題`，例如 `20260901Q3產品發表`）
-2. **素材位置**（文章 / 口播稿 / 圖片目前放在哪裡？預設 `./doc_source/`）
+2. **素材位置**（文章 / 口播稿 / 圖片目前放在哪裡？預設 `./docs/materials/`）
 3. **主題風格**（偏暖色 / 冷色 / 科技感 / 清爽？或直接指定 `.visual-style/` 裡的 profile 名稱，例如 `eason-black-orange`；或說「你幫我選」）
 
 收到三個答案後，建立結構再進入 Phase 1：
@@ -118,7 +118,7 @@ Claude 進入任何目錄時，依以下規則判斷是否需要建立或更新�
 | 目錄類型 | 藍圖檔案 | 觸發條件 |
 |---|---|---|
 | `site/{專案}/` | 該專案的 `CLAUDE.md`（兼作藍圖） | 新增章節、異動 step 時自動更新 |
-| `doc_source/` 或素材目錄 | `BLUEPRINT.md` | 新增檔案 / 子目錄時自動更新 |
+| `docs/materials/` 或素材目錄 | `BLUEPRINT.md` | 新增檔案 / 子目錄時自動更新 |
 | 根目錄 | 本 `CLAUDE.md`（兼作藍圖） | 新增專案或框架規則時自動更新 |
 
 ### 自動建立時機
@@ -156,9 +156,9 @@ project-root/
 │   │       └── SKILL.md    ← 工作流程 + 踩過的坑（/company-report 技能）
 │   └── commands/
 │       └── checkpoint.md   ← Session 收尾回寫流程（/checkpoint 指令）
-├── doc_source/
-│   └── BLUEPRINT.md        ← 素材目錄藍圖（給 Claude 快速索引用）
 ├── docs/
+│   ├── materials/          ← 原始素材庫（跨簡報共用，圖片 / pptx / docx / pdf）
+│   │   └── BLUEPRINT.md    ← 素材目錄藍圖（給 Claude 快速索引用）
 │   └── design/
 │       └── website-brief.md ← 網站化規劃簡報（尚未動工，未來獨立網站專案的設計參考）
 └── site/
