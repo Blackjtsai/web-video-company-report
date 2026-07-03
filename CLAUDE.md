@@ -28,7 +28,7 @@ Hi！我是你的 Web Video 簡報助理 🎬
 ## 🎬 簡報助理 — 觸發方式
 
 當使用者說「**幫我做簡報**」或提到要做網頁影片簡報時，
-自動呼叫 `/company-report` 技能（`_skill/company-report/SKILL.md`），並**先問使用者以下三件事**：
+自動呼叫 `/company-report` 技能（`.claude/skills/company-report/SKILL.md`），並**先問使用者以下三件事**：
 
 1. **簡報專案名稱**（格式建議：`YYYYMMDD主題`，例如 `20260901Q3產品發表`）
 2. **素材位置**（文章 / 口播稿 / 圖片目前放在哪裡？預設 `./doc_source/`）
@@ -148,11 +148,12 @@ project-root/
 │   ├── eason-tai-builder.md
 │   ├── corporate-light.md
 │   └── tech-minimal-dark.md
-├── _skill/
-│   ├── company-report/
-│   │   └── SKILL.md        ← 工作流程 + 踩過的坑（/company-report 技能）
-│   └── checkpoint/
-│       └── SKILL.md        ← Session 收尾回寫流程（/checkpoint 技能）
+├── .claude/
+│   ├── skills/
+│   │   └── company-report/
+│   │       └── SKILL.md    ← 工作流程 + 踩過的坑（/company-report 技能）
+│   └── commands/
+│       └── checkpoint.md   ← Session 收尾回寫流程（/checkpoint 指令）
 ├── doc_source/
 │   └── BLUEPRINT.md        ← 素材目錄藍圖（給 Claude 快速索引用）
 └── site/
@@ -217,7 +218,7 @@ PRESENTATION_TTS=edge-tts npm run synthesize-audio
 | 類型 | 寫到哪 | 例子 |
 |---|---|---|
 | 這個專案的結構異動 | `site/{專案}/CLAUDE.md` | 新增章節、調整 step 數、換圖片、改 port |
-| 可跨專案複用的技巧或踩坑 | `_skill/company-report/SKILL.md` | ImgCard 自然尺寸、vd-split、LineChart 圖例位置 |
+| 可跨專案複用的技巧或踩坑 | `.claude/skills/company-report/SKILL.md` | ImgCard 自然尺寸、vd-split、LineChart 圖例位置 |
 | 影響所有專案的框架規則 | 根目錄 `CLAUDE.md`（本檔） | Stage 兩種模式、新的架構原則 |
 
 ### 寫到專案 CLAUDE.md 的格式
@@ -240,7 +241,7 @@ PRESENTATION_TTS=edge-tts npm run synthesize-audio
 - [ ] 新增圖片 → 圖片資源清單已補上？
 - [ ] Port / Stage 模式有改 → 基本資訊已更新？
 
-**② `_skill/company-report/SKILL.md`**
+**② `.claude/skills/company-report/SKILL.md`**
 - [ ] 踩到新坑 / 發現可複用技巧 → 已追加到「踩過的坑」？
 
 **③ 根目錄 `CLAUDE.md`（本檔）**

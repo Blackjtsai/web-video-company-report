@@ -1,4 +1,9 @@
-﻿# Web Video Presentation — 簡報 SOP
+﻿---
+name: company-report
+description: 把文章 / 口播稿做成點擊驅動的網頁版簡報（可錄屏）。當使用者說「幫我做簡報」或提到要做網頁影片簡報時觸發。涵蓋讀取內容、脚手架、章節實作、split 版面、音頻合成、交付與踩坑知識庫。
+---
+
+# Web Video Presentation — 簡報 SOP
 
 使用 **web-video-presentation** 工法，產出網頁版簡報（可錄屏）：
 
@@ -205,7 +210,7 @@ cd site/{專案名稱}/src && npm run dev
 - [ ] 新增圖片 → 圖片資源清單是否已補上？
 - [ ] Port / Stage 模式有改 → 基本資訊是否已更新？
 
-**② `_skill/company-report/SKILL.md`（本檔）**
+**② `.claude/skills/company-report/SKILL.md`（本檔）**
 - [ ] 這次踩到新坑 / 發現可複用技巧 → 是否已追加到「踩過的坑」？
 
 **③ 根目錄 `CLAUDE.md`**
