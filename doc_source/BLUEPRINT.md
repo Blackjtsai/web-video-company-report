@@ -19,7 +19,6 @@
 | `四大維度AI 協作應用分類與效率分析.pdf` | PDF | 同上，PDF 版本 |
 | `TAI-Builder 協作流程圖.md` | MD | TAI-Builder 協作流程圖文字說明稿 |
 | `flow01.md` | MD | AI 協作 SOP 流程說明（flow01） |
-| `flow01 - 複製.md` | MD | flow01 備份 |
 | `2.md` | MD | AI 協作模式比較：傳統 vs. TAI-Builder 文字說明 |
 
 ### 簡報素材（PNG 圖片）
@@ -152,6 +151,14 @@
 | `CH7-軟體測試與品質保證概覽.png` | PNG | Slide 7：測試金字塔（Unit/Integration/E2E/Security/Performance），測試工具（pytest/httpx/Playwright/coverage.py/ruff），品質保證最佳實踐，AI 在測試中的好幫手 |
 | `CH8-AI 協作與最佳實踐圖解.png` | PNG | Slide 8：7 步驟整體工作流（定義目標→提供 Context→AI 生成→檢視評估→回饋改代→優化整合→驗收交付），有效 Prompt 結構（STAR原則），常見錯誤與避免方式 |
 | `CH9-AI 提示詞與流程優化技巧.png` | PNG | Slide 9：STAR 原則詳解（Situation/Target/Action/Result），提示詞實戰技巧（指定技術棧/提供代碼Context/設定格式與結構/使用角色設定/步驟分解），常見問題與避免方式 |
+
+---
+
+## 20260612/
+
+| 檔案 | 類型 | 內容摘要 |
+|------|------|----------|
+| `20260612-tai-builder-share.md` | MD | 「網站開發規劃簡報（起承轉合優化版）」口播稿，主講 EasonTsai・台灣大哥大客服系統處網站技術課，2026-06-12。極簡扁平暗黑風格（黑底橘字 #FF6600）設計規範 + 完整 Section 規劃。**已用於** `site/20260612-tai-builder-share/` 簡報專案 |
 
 ---
 
