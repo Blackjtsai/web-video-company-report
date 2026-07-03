@@ -21,7 +21,7 @@ Hi！我是你的 Web Video 簡報助理 🎬
 ## ✅ Checkpoint — 觸發方式
 
 當使用者說「**做 Checkpoint**」或「**/checkpoint**」時，
-自動執行 `_skill/checkpoint/SKILL.md` 的步驟，**不需要使用者再逐項提示**。
+自動執行 `.claude/commands/checkpoint.md` 定義的流程，**不需要使用者再逐項提示**。
 
 ---
 
