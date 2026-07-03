@@ -103,6 +103,8 @@ done
 | 20260612-ai-collab-report-light | ✅ 完成 | 11 章，Corporate Light 企業淺色版，無音頻，全螢幕，port 5181 |
 | 20260612-tai-builder-share | ✅ 完成 | 12 章，黑底橘字，TAI-Builder 分享，無音頻，全螢幕，port 5182 |
 
+> 📋 待動工：`docs/design/website-brief.md` 是把「20260612-ai-collab-report」系列內容轉製成獨立網站的規劃簡報，尚未開發，未來若動工可在 `site/` 建對應資料夾參考此文件。
+
 ## 藍圖（BLUEPRINT.md）規則
 
 **藍圖是給 Claude 讀的快速索引**，讓每次 session 不需重新掃描整個目錄。
@@ -156,6 +158,9 @@ project-root/
 │       └── checkpoint.md   ← Session 收尾回寫流程（/checkpoint 指令）
 ├── doc_source/
 │   └── BLUEPRINT.md        ← 素材目錄藍圖（給 Claude 快速索引用）
+├── docs/
+│   └── design/
+│       └── website-brief.md ← 網站化規劃簡報（尚未動工，未來獨立網站專案的設計參考）
 └── site/
     └── <簡報名稱>/
         ├── CLAUDE.md       # 該簡報的章節、指令、主題色
